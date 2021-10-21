@@ -1,0 +1,55 @@
+import { Injectable } from '@angular/core';
+import {environment} from "../../environments/environment";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {Book} from "../common/Book";
+import {map} from "rxjs/operators";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BookService {
+
+  url:string = environment.baseUrl;
+  constructor(private httpClient:HttpClient) {
+  }
+  // getBookList(id:number):Observable<Book[]>{
+  //   const searchUrl = this.url+"/products/search/findByCategoryId?id=";
+  //   return this.httpClient.get<GetResponseProducts>(searchUrl+id).pipe(
+  //     map(response => response.content)
+  //   )
+  // }
+  getBookListPaginate(thePage:number,thePageSize:number,id:number):Observable<GetResponseBooks>{
+    const searchUrl = this.url+"/books/findAllActive?id=";
+    return this.httpClient.get<GetResponseBooks>(`${searchUrl+id}&page=${thePage}&size=${thePageSize}`);
+  }
+
+  // getBookCategories():Observable<Book[]>{
+  //   return this.httpClient.get<GetResponseCategories>(this.url+"/product-category").pipe(
+  //     map(response => response._embedded.productCategory)
+  //   );
+  // }
+  // searchBooks(thePage:number,thePageSize:number,keyWord:string=""):Observable<GetResponseProducts>{
+  //   const searchUrl = this.url+"/products/search/findByNameContaining?name="
+  //   return this.httpClient.get<GetResponseProducts>(`${searchUrl+keyWord}&page=${thePage}&size=${thePageSize}`);
+  // }
+  //
+  // getBook(theProductId: number):Observable<Book> {
+  //   const searchUrl = this.url+"/products/"
+  //   return this.httpClient.get<Book>(searchUrl+theProductId)
+  // }
+}
+export interface GetResponseBooks{
+  content:Book[],
+  size:number,
+  totalElements:number,
+  totalPages:number,
+  number:number
+}
+//
+// interface GetResponseCategories{
+//   _embedded:{
+//     productCategory:ProductCategory[]
+//   }
+// }
+// }

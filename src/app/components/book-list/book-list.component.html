@@ -1,0 +1,53 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div *ngFor="let book of books" class="col-md-3">
+          <div class="product-box">
+            <a routerLink="/products/{{book.id}}">
+              <img alt="" class="img-responsive" src="{{book.images[0].imageUrl}}">
+              <h1>{{book.name}}</h1>
+            </a>
+
+            <div class="price">{{book.price | currency:"VND"}}</div>
+<!--            <button (click)="addToCart(product)" class="btn btn-primary btn-sm" >Add to cart</button>-->
+          </div>
+        </div>
+      </div>
+      <div *ngIf="books?.length==0" class="alert alert-warning col-md-12" role="alert">
+        No products found.
+      </div>
+      <div class="footer-pagination">
+        <div class="row">
+          <div class="col-md-6">
+
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-9" style="padding-left:30%">
+                <!--                maxSize là số lượng nút bấm phâm trang tối đa-->
+                <ngb-pagination
+                  [(page)]="thePageNumber"
+                  [pageSize]="thePageSize"
+                  [collectionSize]="theTotalElements"
+                  [maxSize]="5"
+                  [boundaryLinks]="true"
+                  (pageChange)="getProductList()"></ngb-pagination>
+              </div>
+              <div class="col-md-3 mt-2">
+                <span class="mr-2">Page Size</span>
+                <select (change)="updatePageSize($event)">
+                  <option>2</option>
+                  <option selected="true">5</option>
+                  <option>10</option>
+                  <option>20</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
