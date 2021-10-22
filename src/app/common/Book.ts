@@ -9,7 +9,6 @@ export class Book {
   price: number;
   salePrice:number;
   active:boolean;
-  unitsInStock: number;
   dateCreated: Date;
   lastUpdated: Date;
   author: Author;

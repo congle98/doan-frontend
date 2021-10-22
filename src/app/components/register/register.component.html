@@ -1,1 +1,74 @@
-<p>register works!</p>
+<div class="container" style="margin-top: 100px">
+  <div class="row">
+    <div class="col-md-6 bg-secondary">
+      <form [formGroup]="registerForm">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-space">
+              <input type="text" formControlName="username"  placeholder="Tên đăng nhập">
+              <div *ngIf="username">
+                <div *ngIf="username.invalid && (username.dirty||username.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="username.errors?.required||username.errors?.Whitespace">
+                    Tên tài khoản không được để trống !
+                  </div>
+                  <div *ngIf="username.errors?.minlength">
+                    Tên tài khoản phải lớn hơn 2 ký tự !
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="input-space">
+              <input type="text" formControlName="password" placeholder="Mời nhập mật khẩu">
+              <div *ngIf="password">
+                <div *ngIf="password.invalid && (password.dirty||password.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="password.errors?.required||password.errors?.Whitespace">
+                    Mật khẩu không được để trống !
+                  </div>
+                  <div *ngIf="password.errors?.minlength">
+                    Mật khẩu phải lớn hơn 2 ký tự
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="input-space">
+              <input type="text" formControlName="email" placeholder="Mời nhập email">
+              <div *ngIf="email">
+                <div *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="email.errors?.required">
+                   Email không được để trống !
+                  </div>
+                  <div *ngIf="email.errors?.pattern">
+                   Vui lòng nhập đúng định dạng email
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="input-space">
+              <input type="text" formControlName="phone" placeholder="Mời nhập số điện thoại">
+              <div *ngIf="phone">
+                <div *ngIf="phone.invalid && (phone.dirty||phone.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="phone.errors?.required">
+                    Số điện thoại không được để trống !
+                  </div>
+                  <div *ngIf="phone.errors?.pattern">
+                    Vui lòng nhập đúng định dạng số điện thoại
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" (click)="onSubmit()" class="btn btn-info">Đăng nhập</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

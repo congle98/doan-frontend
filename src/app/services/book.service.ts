@@ -13,26 +13,14 @@ export class BookService {
   url:string = environment.baseUrl;
   constructor(private httpClient:HttpClient) {
   }
-  // getBookList(id:number):Observable<Book[]>{
-  //   const searchUrl = this.url+"/products/search/findByCategoryId?id=";
-  //   return this.httpClient.get<GetResponseProducts>(searchUrl+id).pipe(
-  //     map(response => response.content)
-  //   )
-  // }
   getBookListPaginate(thePage:number,thePageSize:number,id:number):Observable<GetResponseBooks>{
     const searchUrl = this.url+"/books/findAllActive?id=";
     return this.httpClient.get<GetResponseBooks>(`${searchUrl+id}&page=${thePage}&size=${thePageSize}`);
   }
-
-  // getBookCategories():Observable<Book[]>{
-  //   return this.httpClient.get<GetResponseCategories>(this.url+"/product-category").pipe(
-  //     map(response => response._embedded.productCategory)
-  //   );
-  // }
-  // searchBooks(thePage:number,thePageSize:number,keyWord:string=""):Observable<GetResponseProducts>{
-  //   const searchUrl = this.url+"/products/search/findByNameContaining?name="
-  //   return this.httpClient.get<GetResponseProducts>(`${searchUrl+keyWord}&page=${thePage}&size=${thePageSize}`);
-  // }
+  searchBooks(thePage:number,thePageSize:number,keyWord:string=""):Observable<GetResponseBooks>{
+    const searchUrl = this.url+"/books/search/findByContextContaining?context="
+    return this.httpClient.get<GetResponseBooks>(`${searchUrl+keyWord}&page=${thePage}&size=${thePageSize}`);
+  }
   //
   // getBook(theProductId: number):Observable<Book> {
   //   const searchUrl = this.url+"/products/"

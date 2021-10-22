@@ -17,10 +17,7 @@ export class SiderBarComponent implements OnInit {
   }
 
   listProductCategories(){
-    // this.productService.getProductCategories().subscribe((data)=>{
-    //   this.productCategories = data
-    //   console.log(this.productCategories)
-    // })
+    this.categoryService.getProductCategories().subscribe(categories => this.categories = categories);
   }
 
 

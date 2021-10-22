@@ -47,7 +47,7 @@ const routes: Routes = [
         path:"checkout", component:CheckoutComponent
       },
       {
-        path:"cart-detail", component:CartDetailComponent
+        path:"cart-details", component:CartDetailComponent
       }
     ]
   },

@@ -1,1 +1,99 @@
-<p>checkout works!</p>
+<div class="main-content page-m">
+  <div class="section-content section-content-p30 e-spc">
+    <div class="container-fluid">
+      <form [formGroup]="checkoutFormGroup">
+          <h3>Customer</h3>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="input-space">
+                <input type="text" formControlName="fullName" placeholder="Mời nhập họ tên">
+                <div *ngIf="fullName">
+                  <div *ngIf="fullName.invalid && (fullName.dirty||fullName.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="fullName.errors?.required||fullName.errors?.Whitespace">
+                      Họ tên không được để trống !
+                    </div>
+                    <div *ngIf="fullName.errors?.minlength">
+                      Họ tên phải lớn hơn 2 ký tự !
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-space">
+                <input type="text" formControlName="phone" placeholder="Mời nhập số điện thoại">
+                <div *ngIf="phone">
+                  <div *ngIf="phone.invalid && (phone.dirty||phone.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="phone.errors?.required">
+                      Số điện thoại không được để trống !
+                    </div>
+                    <div *ngIf="phone.errors?.pattern">
+                     Vui lòng nhập đúng định dạng số điện thoại !
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-6">
+              <div class="input-space">
+                <input type="text" formControlName="email" placeholder="Mời nhập địa chỉ email">
+                <div *ngIf="email">
+                  <div *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="email.errors?.required">
+                      Email không được để trống !
+                    </div>
+                    <div *ngIf="email.errors?.pattern">
+                      Vui lòng nhập đúng định dạng Email !
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-space">
+              <select formControlName="city">
+                <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+              </select>
+              <div *ngIf="city">
+                <div *ngIf="city.invalid && (city.dirty||city.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="city.errors?.required">
+                    Vui lòng xác định thành phố !
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="input-space">
+              <input formControlName="addressDetail" type="text" placeholder="Địa chỉ chi tiết">
+              <div *ngIf="addressDetail">
+                <div *ngIf="addressDetail.invalid && (addressDetail.dirty||addressDetail.touched)" class="alert alert-danger mt-1">
+                  <div *ngIf="addressDetail.errors?.required||addressDetail.errors?.Whitespace">
+                    Địa chỉ chi tiết không được để trống !
+                  </div>
+                  <div *ngIf="addressDetail.errors?.minlength">
+                    Địa chỉ chi tiết phải lớn hơn 2 ký tự !
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-area">
+          <h3>Review Your Order</h3>
+          <b>Total Quantity: {{totalQuantity}}</b>
+          <h4>Shipping: FREE</h4>
+          <B>Total Price: {{totalPrice|currency:"VND"}}</B>
+        </div>
+        <div class="text-center">
+          <button type="submit" (click)="onSubmit()" class="btn btn-info">Purchase</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

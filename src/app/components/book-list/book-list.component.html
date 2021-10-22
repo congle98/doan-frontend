@@ -10,7 +10,7 @@
             </a>
 
             <div class="price">{{book.price | currency:"VND"}}</div>
-<!--            <button (click)="addToCart(product)" class="btn btn-primary btn-sm" >Add to cart</button>-->
+            <button (click)="addToCart(book)" class="btn btn-primary btn-sm" >Add to cart</button>
           </div>
         </div>
       </div>
@@ -34,15 +34,15 @@
                   [boundaryLinks]="true"
                   (pageChange)="getProductList()"></ngb-pagination>
               </div>
-              <div class="col-md-3 mt-2">
-                <span class="mr-2">Page Size</span>
-                <select (change)="updatePageSize($event)">
-                  <option>2</option>
-                  <option selected="true">5</option>
-                  <option>10</option>
-                  <option>20</option>
-                </select>
-              </div>
+<!--              <div class="col-md-3 mt-2">-->
+<!--                <span class="mr-2">Page Size</span>-->
+<!--                <select (change)="updatePageSize($event)">-->
+<!--                  <option>2</option>-->
+<!--                  <option selected="true">5</option>-->
+<!--                  <option>10</option>-->
+<!--                  <option>20</option>-->
+<!--                </select>-->
+<!--              </div>-->
             </div>
           </div>
         </div>

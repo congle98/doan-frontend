@@ -16,6 +16,7 @@ import { CartDetailComponent } from './components/cart-detail/cart-detail.compon
 import { SiderBarComponent } from './components/sider-bar/sider-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -34,12 +35,13 @@ import {HttpClientModule} from "@angular/common/http";
     SiderBarComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

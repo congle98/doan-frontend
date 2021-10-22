@@ -3,6 +3,7 @@ import {Book} from "../../common/Book";
 import {ActivatedRoute} from "@angular/router";
 import {CartService} from "../../services/cart.service";
 import {BookService, GetResponseBooks} from "../../services/book.service";
+import {CartItem} from "../../common/CartItem";
 
 @Component({
   selector: 'app-book-list',
@@ -31,23 +32,24 @@ export class BookListComponent implements OnInit {
 
   getProductList(){
     this.searchMode = this.route.snapshot.paramMap.has("keyword");
-    // if(this.searchMode){
-    //   this.handleSearchProducts();
-    // }
-    // else {
+    console.log(this.route.snapshot.paramMap.get("keyword"));
+    if(this.searchMode){
+      this.handleSearchProducts();
+    }
+    else {
       this.handleListProducts();
-    // }
+    }
   }
-  // handleSearchProducts() {
-  //   let theKeyword = this.route.snapshot.paramMap.get("keyword")
-  //   if(this.previousKeyWord != theKeyword){
-  //     this.thePageNumber = 1;
-  //   }
-  //   this.previousKeyWord = theKeyword;
-  //   this.bookService.searchProducts(this.thePageNumber-1,
-  //     this.thePageSize,theKeyword?theKeyword:"").subscribe(data => this.processResult(data))
-  // }
-  //
+  handleSearchProducts() {
+    let theKeyword = this.route.snapshot.paramMap.get("keyword")
+    if(this.previousKeyWord != theKeyword){
+      this.thePageNumber = 1;
+    }
+    this.previousKeyWord = theKeyword;
+    this.bookService.searchBooks(this.thePageNumber-1,
+      this.thePageSize,theKeyword?theKeyword:"").subscribe(data => this.processResult(data))
+  }
+
   handleListProducts(){
     const  hasCategoryId:boolean = this.route.snapshot.paramMap.has("id");
 
@@ -82,9 +84,9 @@ export class BookListComponent implements OnInit {
     this.getProductList();
   }
   //
-  // addToCart(product:Product){
-  //   const cartItem:CartItem = new CartItem(product);
-  //   this.cartService.addToCart(cartItem);
-  // }
+  addToCart(book:Book){
+    const cartItem:CartItem = new CartItem(book);
+    this.cartService.addToCart(cartItem);
+  }
 
 }
