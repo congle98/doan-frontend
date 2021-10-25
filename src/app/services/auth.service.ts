@@ -3,14 +3,15 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {BehaviorSubject, Subject} from "rxjs";
 import {User} from "../common/User";
+import {RegisterRequest} from "../common/RegisterRequest";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   url:string = environment.baseUrl+"/auth";
-  loginStatusSubject = new BehaviorSubject<boolean>(false);
-  isAdmin = new BehaviorSubject<boolean>(false);
+  loginStatusSubject = new Subject<boolean>();
+  isAdmin = new Subject<boolean>();
   constructor(private httpClient:HttpClient) { }
 
 
@@ -21,6 +22,11 @@ export class AuthService {
     }
     return this.httpClient.post(this.url+"/login",loginForm);
   }
+
+  register(registerRequest:RegisterRequest){
+    return this.httpClient.post(this.url+"/register",registerRequest);
+  }
+
   loginSuccess(user:any){
     localStorage.setItem("user",JSON.stringify(user));
     this.loginStatusSubject.next(true);

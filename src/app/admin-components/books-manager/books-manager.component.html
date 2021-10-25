@@ -1,0 +1,126 @@
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+    <div class="card">
+      <p-toolbar styleClass="p-mb-4">
+        <ng-template pTemplate="left">
+          <button pButton pRipple label="Thêm mới" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+        </ng-template>
+      </p-toolbar>
+
+      <p-table #dt [value]=" books"  [rows]="5" [paginator]="true" [globalFilterFields]="['name','author.name','bookCategory.name']" responsiveLayout="scroll"
+               [rowHover]="true" dataKey="id"
+               [(selection)]="selectedBooks"
+                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+          <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+              <h5 class="p-m-0">Quản lý sách</h5>
+              <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search..." />
+                </span>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="id">Id<p-sortIcon field="id"></p-sortIcon></th>
+              <th pSortableColumn="name">Tên<p-sortIcon field="name"></p-sortIcon></th>
+              <th pSortableColumn="description">Mô tả<p-sortIcon field="description"></p-sortIcon></th>
+              <th pSortableColumn="price">Giá ban đầu<p-sortIcon field="price"></p-sortIcon></th>
+              <th pSortableColumn="salePrice">Giá khuyến mại<p-sortIcon field="salePrice"></p-sortIcon></th>
+              <th pSortableColumn="active">Trạng thái<p-sortIcon field="active"></p-sortIcon></th>
+              <th pSortableColumn="dateCreated">Ngày tạo<p-sortIcon field="dateCreated"></p-sortIcon></th>
+              <th pSortableColumn="lastUpdated">Ngày chỉnh sửa gần nhất<p-sortIcon field="lastUpdated"></p-sortIcon></th>
+              <th pSortableColumn="author.name">Tác giả<p-sortIcon field="author.name"></p-sortIcon></th>
+              <th>Ảnh</th>
+              <th pSortableColumn="bookCategory.name">Thể loại<p-sortIcon field="bookCategory.name"></p-sortIcon></th>
+              <th>Thao tác</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-book>
+            <tr>
+              <td>{{book.id}}</td>
+              <td>{{book.name}}</td>
+              <td>{{book.description | slice : 0:100 }}...</td>
+              <td>{{book.price | currency:"VND"}}</td>
+              <td>{{book.salePrice | currency:"VND"}}</td>
+              <td>{{book.active?"Kích hoạt":"Chưa kích hoạt"}}</td>
+              <td>{{book.dateCreated}}</td>
+              <td>{{book.lastUpdated}}</td>
+              <td>{{book.author.name}}</td>
+              <td><img src="{{book.images[0].imageUrl}}" class="product-image" alt=""></td>
+              <td>{{book.bookCategory.name}}</td>
+              <td>
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editProduct(book)"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(book)"></button>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+          </ng-template>
+          <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+          </ng-template>
+        </p-table>
+      </div>
+  <p-dialog [(visible)]="bookDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      <img [src]=" book.images[0].imageUrl" [alt]="book.images[0].imageUrl" class="product-image" *ngIf="book.images">
+      <div class="p-field">
+        <label for="name">Name</label>
+        <input type="text" pInputText id="name" [(ngModel)]="book.name" required autofocus />
+        <small class="p-error" *ngIf="submitted && !book.name">Name is required.</small>
+      </div>
+      <div class="p-field">
+        <label for="description">Description</label>
+        <textarea id="description" pInputTextarea [(ngModel)]="book.description" required rows="3" cols="20"></textarea>
+      </div>
+      <div class="p-field">
+        <p-dropdown [(ngModel)]="book.active" inputId="inventoryStatus" [options]="statuses" placeholder="Select">
+          <ng-template let-option pTemplate="item">
+            <span [class]="'product-badge status-' + option.value">{{option.label}}</span>
+          </ng-template>
+        </p-dropdown>
+      </div>
+
+      <div class="p-field">
+        <label class="p-mb-3">Category</label>
+        <div class="p-formgrid p-grid">
+          <div class="p-field-radiobutton p-col-6">
+            <p-radioButton id="category1" name="category" value="Accessories" [(ngModel)]="book.bookCategory"></p-radioButton>
+            <label for="category1">Accessories</label>
+          </div>
+          <div class="p-field-radiobutton p-col-6">
+            <p-radioButton id="category2" name="category" value="Clothing" [(ngModel)]="book.bookCategory"></p-radioButton>
+            <label for="category2">Clothing</label>
+          </div>
+          <div class="p-field-radiobutton p-col-6">
+            <p-radioButton id="category3" name="category" value="Electronics" [(ngModel)]="book.bookCategory"></p-radioButton>
+            <label for="category3">Electronics</label>
+          </div>
+          <div class="p-field-radiobutton p-col-6">
+            <p-radioButton id="category4" name="category" value="Fitness" [(ngModel)]="book.bookCategory"></p-radioButton>
+            <label for="category4">Fitness</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-formgrid p-grid">
+        <div class="p-field p-col">
+          <label for="price">Price</label>
+          <p-inputNumber id="price" [(ngModel)]="book.price" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+        </div>
+        <div class="p-field p-col">
+          <label for="quantity">Quantity</label>
+          <p-inputNumber id="quantity" [(ngModel)]="book.salePrice"></p-inputNumber>
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+    </ng-template>
+  </p-dialog>
+</div>

@@ -32,7 +32,6 @@ export class BookListComponent implements OnInit {
 
   getProductList(){
     this.searchMode = this.route.snapshot.paramMap.has("keyword");
-    console.log(this.route.snapshot.paramMap.get("keyword"));
     if(this.searchMode){
       this.handleSearchProducts();
     }

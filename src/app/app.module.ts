@@ -16,7 +16,36 @@ import { CartDetailComponent } from './components/cart-detail/cart-detail.compon
 import { SiderBarComponent } from './components/sider-bar/sider-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { LoginStatusComponent } from './components/login-status/login-status.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import {ListOrderItemComponent} from "./common/dialog/list-order-item/list-order-item.component";
+import {TableModule} from "primeng/table";
+import {ButtonModule} from "primeng/button";
+import {ToastModule} from "primeng/toast";
+import {DialogService, DynamicDialogModule} from "primeng/dynamicdialog";
+import {TabViewModule} from "primeng/tabview";
+import {MessageService} from "primeng/api";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {OverlayPanelModule} from "primeng/overlaypanel";
+import {RippleModule} from "primeng/ripple";
+import { NavbarComponent } from './admin-components/navbar/navbar.component';
+import { DashboardComponent } from './admin-components/dashboard/dashboard.component';
+import { MainComponent } from './admin-components/main/main.component';
+import { ListCustomerComponent } from './admin-components/customer-manager/list-customer.component';
+import { ListOrderComponent } from './admin-components/order-manager/list-order.component';
+import { FooterComponent } from './admin-components/footer/footer.component';
+import { BooksManagerComponent } from './admin-components/books-manager/books-manager.component';
+import { AuthorManagerComponent } from './admin-components/author-manager/author-manager.component';
+import {ToolbarModule} from "primeng/toolbar";
+import {InputTextModule} from "primeng/inputtext";
+import {DialogModule} from "primeng/dialog";
+import {DropdownModule} from "primeng/dropdown";
+import {RadioButtonModule} from "primeng/radiobutton";
+import {InputNumberModule} from "primeng/inputnumber";
+import {InputTextareaModule} from "primeng/inputtextarea";
 
 
 @NgModule({
@@ -33,16 +62,48 @@ import {ReactiveFormsModule} from "@angular/forms";
     CartStatusComponent,
     CartDetailComponent,
     SiderBarComponent,
+    LoginStatusComponent,
+    OrderHistoryComponent,
+    ListOrderItemComponent,
+    NavbarComponent,
+    DashboardComponent,
+    MainComponent,
+    ListCustomerComponent,
+    ListOrderComponent,
+    FooterComponent,
+    BooksManagerComponent,
+    AuthorManagerComponent
 
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        HttpClientModule,
-        ReactiveFormsModule
-    ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    DynamicDialogModule,
+    ToastModule,
+    TableModule,
+    ButtonModule,
+    TabViewModule,
+    MessagesModule,
+    MessageModule,
+    OverlayPanelModule,
+    RippleModule,
+    ToolbarModule,
+    InputTextModule,
+    DialogModule,
+    DropdownModule,
+    RadioButtonModule,
+    InputNumberModule,
+    FormsModule,
+    InputTextareaModule
+
+
+  ],
+  providers: [DialogService,MessageService],
+  bootstrap: [AppComponent],
+  entryComponents:[ListOrderItemComponent]
 })
 export class AppModule { }

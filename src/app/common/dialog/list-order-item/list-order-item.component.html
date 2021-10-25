@@ -1,0 +1,19 @@
+<p-table [value]="orderItems" [paginator]="true" [rows]="5" [responsive]="true">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="name">Tên sản phẩm</th>
+      <th pSortableColumn="year">Hình ảnh</th>
+      <th pSortableColumn="price">Giá thành</th>
+      <th pSortableColumn="inventoryStatus">Số lượng</th>
+      <th style="width:4em"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{product.book.name}}</td>
+      <td><img src="{{product.imageUrl}}" [alt]="product.imageUrl"  class="product-image"/></td>
+      <td>{{product.unitPrice}}</td>
+      <td><span>{{product.quantity}}</span></td>
+    </tr>
+  </ng-template>
+</p-table>

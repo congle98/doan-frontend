@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import { Observable } from 'rxjs';
 import {AuthService} from "../services/auth.service";
 
@@ -7,16 +7,18 @@ import {AuthService} from "../services/auth.service";
   providedIn: 'root'
 })
 export class CustomerGuard implements CanActivate {
-  constructor(private authService:AuthService) {
+  constructor(private authService:AuthService, private router:Router) {
   }
-  isLogin:boolean = false;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.authService.loginStatusSubject.subscribe(data => {
-      this.isLogin = data;
-    })
-    return this.isLogin;
+    if(this.authService.isLoggedIn()){
+      return true;
+    }
+    else {
+      this.router.navigateByUrl("");
+      return false;
+    }
   }
 
 }

@@ -112,7 +112,6 @@ export class CheckoutComponent implements OnInit {
     purchase.order = order;
     purchase.customer = customer;
     purchase.orderItems = orderItemsShort;
-    console.log(orderItemsShort);
     this.checkoutService.placeOrder(purchase).subscribe(data => {
         alert("đơn hàng có mã " + data.orderTrackingNumber + " đã được gửi thành công");
         this.resetCart();

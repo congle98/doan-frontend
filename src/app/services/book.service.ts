@@ -21,6 +21,14 @@ export class BookService {
     const searchUrl = this.url+"/books/search/findByContextContaining?context="
     return this.httpClient.get<GetResponseBooks>(`${searchUrl+keyWord}&page=${thePage}&size=${thePageSize}`);
   }
+  getAllByAdmin():Observable<Book[]>{
+    let url = this.url+"/books";
+    return this.httpClient.get<Book[]>(url);
+  }
+  changeBookStatus(id:number):Observable<Book>{
+    let url = this.url+"/books";
+    return this.httpClient.put<Book>(url,id);
+  }
   //
   // getBook(theProductId: number):Observable<Book> {
   //   const searchUrl = this.url+"/products/"

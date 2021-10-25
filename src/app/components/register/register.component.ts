@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {AppValidators} from "../../validators/AppValidators";
+import {RegisterRequest} from "../../common/RegisterRequest";
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
       username: new FormControl(
         "", [Validators.required, Validators.minLength(2), AppValidators.notOnlyWhitespace]),
       email: new FormControl(
-       " ", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+       "", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       phone: new FormControl(
         "", [Validators.required, Validators.pattern("^(84|0[3|5|7|8|9])+([0-9]{8})$")]),
       password: new FormControl(
@@ -40,7 +41,26 @@ export class RegisterComponent implements OnInit {
   get password(){
     return this.registerForm.get("password");
   }
-  onSubmit(){
 
+
+  onSubmit(){
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+    let registerRequest:RegisterRequest = {
+      email:this.registerForm.controls["email"].value,
+      username:this.registerForm.controls["username"].value,
+      password:this.registerForm.controls["password"].value,
+      phone:this.registerForm.controls["phone"].value
+    }
+    this.authService.register(registerRequest).subscribe((success) => {
+      console.log("đăng ký thành công"+success);
+      this.registerForm.reset();
+      this.router.navigateByUrl("/login");
+    },
+      (error) => {
+       console.log(error.error.message);
+    })
   }
 }

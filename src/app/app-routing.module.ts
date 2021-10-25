@@ -8,6 +8,13 @@ import {CheckoutComponent} from "./components/checkout/checkout.component";
 import {CartDetailComponent} from "./components/cart-detail/cart-detail.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {OrderHistoryComponent} from "./components/order-history/order-history.component";
+import {CustomerGuard} from "./guard/customer.guard";
+import {MainComponent} from "./admin-components/main/main.component";
+import {ListCustomerComponent} from "./admin-components/customer-manager/list-customer.component";
+import {ListOrderComponent} from "./admin-components/order-manager/list-order.component";
+import {BooksManagerComponent} from "./admin-components/books-manager/books-manager.component";
+import {AuthorManagerComponent} from "./admin-components/author-manager/author-manager.component";
 
 const routes: Routes = [
   {
@@ -48,11 +55,42 @@ const routes: Routes = [
       },
       {
         path:"cart-details", component:CartDetailComponent
+      },
+      {
+        path:"order-history", component:OrderHistoryComponent,
+        canActivate:[CustomerGuard]
       }
     ]
   },
   {
-    path:"admin",component:AdminPageComponent
+    path:"admin",component:AdminPageComponent,
+    children: [
+      {
+        path: "",
+        redirectTo: "main-dashboard",
+        pathMatch:"full"
+      },
+      {
+        path: "main-dashboard",
+        component: MainComponent
+      },
+      {
+        path: "customer",
+        component: ListCustomerComponent
+      },
+      {
+        path: "orders",
+        component: ListOrderComponent
+      },
+      {
+        path: "books",
+        component: BooksManagerComponent
+      },
+      {
+        path:"author",
+        component: AuthorManagerComponent
+      }
+    ]
   }
 ];
 
