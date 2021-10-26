@@ -1,1 +1,78 @@
-<p>author-manager works!</p>
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="card">
+    <p-toolbar styleClass="p-mb-4">
+      <ng-template pTemplate="left">
+        <button pButton pRipple label="Thêm mới" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+      </ng-template>
+    </p-toolbar>
+
+    <p-table #dt [value]="authors"  [rows]="5" [paginator]="true" [globalFilterFields]="['name','id']"
+             [rowHover]="true" dataKey="id"
+             currentPageReportTemplate="Từ {first} đến {last} trong {totalRecords} tác giả" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          <h5 class="p-m-0">Quản lý tác giả</h5>
+          <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search..." />
+                </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">Id<p-sortIcon field="id"></p-sortIcon></th>
+          <th pSortableColumn="name">Tên<p-sortIcon field="name"></p-sortIcon></th>
+          <th pSortableColumn="introduce">Thông tin<p-sortIcon field="introduce"></p-sortIcon></th>
+          <th pSortableColumn="active">Trạng thái<p-sortIcon field="active"></p-sortIcon></th>
+          <th>Thao tác</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-author>
+        <tr>
+          <td>{{author.id}}</td>
+          <td>{{author.name}}</td>
+          <td>{{author.introduce | slice : 0:100 }}...</td>
+          <td class="d-inline text-center "><p class="text-white" style="border-radius: 20px; padding: 5px;" [class]="author.active?'bg-success':'bg-danger'">{{author.active?"Kích hoạt":"Chưa kích hoạt"}}</p></td>
+          <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editAuthor(author)"></button>
+            <button pButton pRipple icon="pi pi-key" class="p-button-rounded p-button-warning" (click)="changeActive(author)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <p-dialog [(visible)]="authorDialog" [style]="{width: '450px'}" (onHide)="hideDialog()" header="{{isEdit?'Chỉnh sửa:':'Tạo mới'}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      <form [formGroup]="authorForm">
+        <div class="p-field mt-3">
+          <label for="name">Tên sách</label>
+          <input id="name"  pInputText  formControlName="name"/>
+          <div *ngIf="name">
+            <div *ngIf="name.invalid && (name.dirty||name.touched)">
+              <small *ngIf="name.errors?.required||name.errors?.Whitespace"  class="p-error">Tên tác giả không được để trống !</small>
+              <small  *ngIf="name.errors?.minlength" class="p-error">Tên tác giả phải lớn hơn 2 ký tự !</small>
+            </div>
+          </div>
+        </div>
+        <div class="p-field mt-3">
+          <label for="introduce">Thông tin tác giả</label>
+          <textarea id="introduce" formControlName="introduce" pInputTextarea placeholder="Thông tin tác giả" required rows="8" cols="15"></textarea>
+          <div *ngIf="introduce">
+            <div *ngIf="introduce.invalid && (introduce.dirty||introduce.touched)">
+              <small *ngIf="introduce.errors?.required||introduce.errors?.Whitespace"  class="p-error">Mô tả không được để trống !</small>
+              <small  *ngIf="introduce.errors?.minlength" class="p-error">Mô tả phải lớn hơn 2 ký tự !</small>
+            </div>
+          </div>
+        </div>
+      </form>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton pRipple label="Thoát" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Lưu" icon="pi pi-check" class="p-button-text" (click)="saveAuthorToBackend()"></button>
+    </ng-template>
+  </p-dialog>
+</div>
+

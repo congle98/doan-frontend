@@ -46,6 +46,9 @@ import {DropdownModule} from "primeng/dropdown";
 import {RadioButtonModule} from "primeng/radiobutton";
 import {InputNumberModule} from "primeng/inputnumber";
 import {InputTextareaModule} from "primeng/inputtextarea";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 
 @NgModule({
@@ -98,9 +101,9 @@ import {InputTextareaModule} from "primeng/inputtextarea";
     RadioButtonModule,
     InputNumberModule,
     FormsModule,
-    InputTextareaModule
-
-
+    InputTextareaModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
   ],
   providers: [DialogService,MessageService],
   bootstrap: [AppComponent],

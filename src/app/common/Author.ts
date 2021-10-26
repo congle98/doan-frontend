@@ -1,5 +1,6 @@
 export class Author {
   id: number;
-  name: String;
-  introduce: String;
+  name: string;
+  introduce: string;
+  active:boolean;
 }

@@ -8,12 +8,12 @@
       <th style="width:4em"></th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-product>
+  <ng-template pTemplate="body" let-order>
     <tr>
-      <td>{{product.book.name}}</td>
-      <td><img src="{{product.imageUrl}}" [alt]="product.imageUrl"  class="product-image"/></td>
-      <td>{{product.unitPrice}}</td>
-      <td><span>{{product.quantity}}</span></td>
+      <td>{{order.book.name}}</td>
+      <td><img src="{{order.imageUrl}}" [alt]="order.imageUrl"  class="product-image"/></td>
+      <td>{{order.unitPrice}}</td>
+      <td><span>{{order.quantity}}</span></td>
     </tr>
   </ng-template>
 </p-table>

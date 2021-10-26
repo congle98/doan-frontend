@@ -5,7 +5,7 @@
         <div *ngFor="let book of books" class="col-md-3">
           <div class="product-box">
             <a routerLink="/products/{{book.id}}">
-              <img alt="" class="img-responsive" src="{{book.images[0].imageUrl}}">
+              <img alt="" class="img-responsive" src="{{book.imageUrl}}">
               <h1>{{book.name}}</h1>
             </a>
 

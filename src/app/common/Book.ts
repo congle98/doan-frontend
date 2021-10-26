@@ -1,5 +1,4 @@
 import {Author} from "./Author";
-import {Image} from "./Image";
 import {BookCategory} from "./BookCategory";
 
 export class Book {
@@ -12,6 +11,6 @@ export class Book {
   dateCreated: Date;
   lastUpdated: Date;
   author: Author;
-  images: Image[];
+  imageUrl: string;
   bookCategory: BookCategory;
 }

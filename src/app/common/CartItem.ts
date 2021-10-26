@@ -10,7 +10,7 @@ export class CartItem {
   constructor(book:Book) {
     this.id = book.id;
     this.name = book.name;
-    this.imageUrl = book.images[0].imageUrl;
+    this.imageUrl = book.imageUrl;
     this.unitPrice = book.price;
     this.quantity = 1;
   }
