@@ -11,7 +11,8 @@ import {OrderItem} from "../../common/OrderItem";
 import {Purchase} from "../../common/Purchase";
 import {Customer} from "../../common/Customer";
 import {AuthService} from "../../services/auth.service";
-
+import Swal from 'sweetalert2';
+import {AlertService} from "../../services/alert.service";
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -28,7 +29,8 @@ export class CheckoutComponent implements OnInit {
               private cartService: CartService,
               private authService: AuthService,
               private checkoutService: CheckoutService,
-              private router: Router
+              private router: Router,
+              private alertService:AlertService
   ) {
   }
 
@@ -113,7 +115,7 @@ export class CheckoutComponent implements OnInit {
     purchase.customer = customer;
     purchase.orderItems = orderItemsShort;
     this.checkoutService.placeOrder(purchase).subscribe(data => {
-        alert("đơn hàng có mã " + data.orderTrackingNumber + " đã được gửi thành công");
+        this.alertService.alertSuccess("Bạn đã đặt hàng thành công !");
         this.resetCart();
       },
       error => alert(error.message));

@@ -4,6 +4,7 @@ import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {AppValidators} from "../../validators/AppValidators";
 import {RegisterRequest} from "../../common/RegisterRequest";
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,10 @@ import {RegisterRequest} from "../../common/RegisterRequest";
 })
 export class RegisterComponent implements OnInit {
   registerForm:FormGroup;
-  constructor(private authService:AuthService, private formBuilder: FormBuilder, private router:Router) { }
+  constructor(private authService:AuthService,
+              private formBuilder: FormBuilder,
+              private router:Router,
+              private alertService:AlertService) { }
 
   ngOnInit(): void {
     this.builderForm();
@@ -55,12 +59,12 @@ export class RegisterComponent implements OnInit {
       phone:this.registerForm.controls["phone"].value
     }
     this.authService.register(registerRequest).subscribe((success) => {
-      console.log("đăng ký thành công"+success);
+        this.alertService.alertSuccess("Đăng ký thành công hãy bắt đầu mua sắm !")
       this.registerForm.reset();
       this.router.navigateByUrl("/login");
     },
       (error) => {
-       console.log(error.error.message);
+        this.alertService.alertFail(error.error.message);
     })
   }
 }

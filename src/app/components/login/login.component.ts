@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {AppValidators} from "../../validators/AppValidators";
 import {Router} from "@angular/router";
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,11 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private authService: AuthService,
+              private formBuilder: FormBuilder,
+              private router: Router,
+              private alertService:AlertService
+              ) {
   }
 
   ngOnInit(): void {
@@ -39,11 +44,10 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.controls["password"].value;
     this.authService.login(userName, password).subscribe((sussces) => {
         this.authService.loginSuccess(sussces);
-        console.log("thành công");
         this.loginForm.reset();
       },
       (error) => {
-        console.log(error.error.message);
+        this.alertService.alertFail(error.error.message);
       }
     );
   }

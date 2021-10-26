@@ -3,6 +3,8 @@ import {Author} from "../../common/Author";
 import {AuthorService} from "../../services/author.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AppValidators} from "../../validators/AppValidators";
+import Swal from "sweetalert2";
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-author-manager',
@@ -15,7 +17,7 @@ export class AuthorManagerComponent implements OnInit {
   authorForm: FormGroup;
   isEdit = false;
 
-  constructor(private authorService: AuthorService, private formBuilder: FormBuilder) {
+  constructor(private authorService: AuthorService, private formBuilder: FormBuilder, private alertService:AlertService) {
   }
 
   ngOnInit(): void {
@@ -83,6 +85,7 @@ export class AuthorManagerComponent implements OnInit {
       } else {
         this.authors.push(data)
       }
+      this.alertService.alertUpdateSuccess();
     });
     this.hideDialog();
   }
@@ -95,6 +98,7 @@ export class AuthorManagerComponent implements OnInit {
         }
         return item;
       })
+      this.alertService.alertUpdateSuccess();
     })
   }
 }

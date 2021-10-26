@@ -11,6 +11,7 @@ import {AppValidators} from "../../validators/AppValidators";
 import {B} from "@angular/cdk/keycodes";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs/operators";
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-books-manager',
@@ -27,7 +28,12 @@ export class BooksManagerComponent implements OnInit {
   selectedBooks: Book[];
   imageFile:any;
   imageUrl:string;
-  constructor(private storage:AngularFireStorage,private formBuilder:FormBuilder, private bookService:BookService, private authorService:AuthorService, private categoryService: CategoryService) { }
+  constructor(private storage:AngularFireStorage,
+              private formBuilder:FormBuilder,
+              private bookService:BookService,
+              private authorService:AuthorService,
+              private categoryService: CategoryService,
+              private alertService:AlertService) { }
 
   ngOnInit(): void {
     this.getAllByAdmin();
@@ -167,6 +173,7 @@ export class BooksManagerComponent implements OnInit {
         return item;
       })
     })
+    this.alertService.alertUpdateSuccess();
   }
   getAllAuthors(){
     this.authorService.getAllActive().subscribe(data => this.authors = data);
@@ -201,6 +208,7 @@ export class BooksManagerComponent implements OnInit {
           fileRef.getDownloadURL().subscribe(url => {
             this.imageUrl = url;
             this.saveBookToBackend();
+            this.alertService.alertUpdateSuccess();
           });
         })).subscribe();
     }
