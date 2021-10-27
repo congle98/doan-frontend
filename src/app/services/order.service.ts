@@ -12,7 +12,7 @@ export class OrderService {
   url = environment.baseUrl+"/orders";
   constructor(private httpClient:HttpClient) { }
 
-  getAllOrdersByCustomer(id:number):Observable<Order[]>{
+  getAllOrders(id:number):Observable<Order[]>{
     let url = this.url+"?id="
     return this.httpClient.get<Order[]>(`${url+id}`);
   }

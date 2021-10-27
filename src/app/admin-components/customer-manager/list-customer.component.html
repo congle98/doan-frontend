@@ -1,1 +1,75 @@
-<p>list-customer works!</p>
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="card">
+    <p-table #dt [value]="users"  [rows]="5" [paginator]="true" [globalFilterFields]="['username','email','fullName']" responsiveLayout="scroll"
+             [rowHover]="true" dataKey="id"
+             currentPageReportTemplate="Từ {first} đến {last} trong {totalRecords} người dùng" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+          <h5 class="p-m-0">Quản lý người dùng</h5>
+          <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search..." />
+                </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">Id<p-sortIcon field="id"></p-sortIcon></th>
+          <th pSortableColumn="fullName">Tên người dùng<p-sortIcon field="fullName"></p-sortIcon></th>
+          <th pSortableColumn="username">Tên tài khoản<p-sortIcon field="username"></p-sortIcon></th>
+          <th pSortableColumn="email">Email<p-sortIcon field="email"></p-sortIcon></th>
+          <th pSortableColumn="phone">Số điện thoại<p-sortIcon field="phone"></p-sortIcon></th>
+          <th pSortableColumn="status">Trạng thái<p-sortIcon field="status"></p-sortIcon></th>
+          <th>Thao tác</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{user.fullName}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.status?"Hoạt động":"Khoá"}}</td>
+          <td>
+            <button pButton pRipple label="Thông tin hoạt động" class="p-button-rounded p-button-info mr-3" (click)="detail(user)"></button>
+            <button pButton pRipple label="{{user.status?'Khoá':'Mở khoá'}}" class="p-button-rounded p-button-danger mr-3" (click)="changeActive(user)"></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <p-dialog [(visible)]="userDialog" [style]="{width: '70%'}" (onHide)="hideDialog()" [modal]="true" styleClass="p-fluid">
+       <p-table [value]="orderOfUser" [rows]="5" [paginator]="true" [globalFilterFields]="['username','email','fullName']" responsiveLayout="scroll"
+                [rowHover]="true" dataKey="id"
+                currentPageReportTemplate="Từ {first} đến {last} trong {totalRecords} người dùng" [showCurrentPageReport]="true">
+         <ng-template pTemplate="header">
+           <tr>
+             <th pSortableColumn="id">Id<p-sortIcon field="id"></p-sortIcon></th>
+             <th pSortableColumn="totalQuantity">Tổng số lượng<p-sortIcon field="fullName"></p-sortIcon></th>
+             <th pSortableColumn="totalPrice">Tổng giá tiền<p-sortIcon field="username"></p-sortIcon></th>
+             <th>Danh sách sản phẩm</th>
+             <th pSortableColumn="status.name">Trạng thái<p-sortIcon field="email"></p-sortIcon></th>
+             <th pSortableColumn="dateCreated">Ngày tạo đơn<p-sortIcon field="phone"></p-sortIcon></th>
+           </tr>
+         </ng-template>
+         <ng-template pTemplate="body" let-order>
+           <tr>
+             <td>{{order.id}}</td>
+             <td>{{order.totalQuantity}}</td>
+             <td>{{order.totalPrice}}</td>
+             <td><div *ngFor="let orderItem of order.orderItems">{{orderItem.book.name+' x'+orderItem.quantity+''}}<hr></div></td>
+             <td>{{order.status.name}}</td>
+             <td>{{order.dateCreated}}</td>
+           </tr>
+         </ng-template>
+       </p-table>
+    <ng-template pTemplate="footer">
+      <button pButton pRipple label="Thoát" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    </ng-template>
+  </p-dialog>
+</div>
+
+

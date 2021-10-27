@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from "../../common/Order";
 import {Book} from "../../common/Book";
 import {BookService} from "../../services/book.service";
 import {AuthorService} from "../../services/author.service";
@@ -8,7 +7,7 @@ import {BookCategory} from "../../common/BookCategory";
 import {CategoryService} from "../../services/category.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AppValidators} from "../../validators/AppValidators";
-import {B} from "@angular/cdk/keycodes";
+// @ts-ignore
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs/operators";
 import {AlertService} from "../../services/alert.service";
@@ -110,7 +109,6 @@ export class BooksManagerComponent implements OnInit {
     else {
       subscribe = this.bookService.saveBook(book);
     }
-    console.log(book);
     subscribe.subscribe(data =>{
       if(this.isEdit){
         this.books = this.books.map(item =>{
@@ -205,17 +203,16 @@ export class BooksManagerComponent implements OnInit {
       const fileRef = this.storage.ref(filePath);
        this.storage.upload(filePath, this.imageFile).snapshotChanges().pipe(
         finalize(() => {
-          fileRef.getDownloadURL().subscribe(url => {
+          fileRef.getDownloadURL().subscribe((url:any) => {
             this.imageUrl = url;
             this.saveBookToBackend();
-            this.alertService.alertUpdateSuccess();
           });
         })).subscribe();
     }
     else {
       this.saveBookToBackend();
     }
-
+    this.alertService.alertUpdateSuccess();
     this.hideDialog();
   }
 

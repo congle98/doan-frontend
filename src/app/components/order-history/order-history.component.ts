@@ -46,7 +46,7 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
   }
 
   handleListOrder(){
-    this.orderService.getAllOrdersByCustomer(
+    this.orderService.getAllOrders(
       this.customerId,
       ).subscribe(data => this.orders = data);
   }

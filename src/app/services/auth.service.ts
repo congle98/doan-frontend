@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {BehaviorSubject, Subject} from "rxjs";
+import {Subject} from "rxjs";
 import {User} from "../common/User";
 import {RegisterRequest} from "../common/RegisterRequest";
 
@@ -54,8 +54,7 @@ export class AuthService {
     }
   }
   getUser():User{
-    let user:User = JSON.parse(<string>localStorage.getItem("user"));
-    return user;
+    return JSON.parse(<string>localStorage.getItem("user"));
   }
   isLoggedIn(){
     let user = localStorage.getItem('user');

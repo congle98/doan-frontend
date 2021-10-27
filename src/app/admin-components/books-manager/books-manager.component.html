@@ -1,16 +1,18 @@
 <div class="container-fluid">
 
   <!-- Page Heading -->
-    <div class="card">
-      <p-toolbar styleClass="p-mb-4">
-        <ng-template pTemplate="left">
-          <button pButton pRipple label="Thêm mới" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
-        </ng-template>
-      </p-toolbar>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <p-toolbar styleClass="p-mb-4">
+          <ng-template pTemplate="left">
+            <button pButton pRipple label="Thêm mới" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+          </ng-template>
+        </p-toolbar>
 
-      <p-table #dt [value]=" books"  [rows]="5" [paginator]="true" [globalFilterFields]="['name','author.name','bookCategory.name']" responsiveLayout="scroll"
-               [rowHover]="true" dataKey="id"
-               [(selection)]="selectedBooks"
+        <p-table #dt [value]=" books"  [rows]="5" [paginator]="true" [globalFilterFields]="['name','author.name','bookCategory.name']" responsiveLayout="scroll"
+                 [rowHover]="true" dataKey="id"
+                 [(selection)]="selectedBooks"
                  currentPageReportTemplate="Từ {first} đến {last} trong {totalRecords} sách" [showCurrentPageReport]="true">
           <ng-template pTemplate="caption">
             <div class="p-d-flex p-ai-center p-jc-between">
@@ -41,7 +43,7 @@
             <tr>
               <td>{{book.id}}</td>
               <td>{{book.name}}</td>
-              <td>{{book.description | slice : 0:100 }}...</td>
+              <td>{{book.description | slice : 0:20 }}...</td>
               <td>{{book.price | currency:"VND"}}</td>
               <td>{{book.salePrice | currency:"VND"}}</td>
               <td class="d-inline text-center "><p class="text-white" style="border-radius: 20px; padding: 5px;" [class]="book.active?'bg-success':'bg-danger'">{{book.active?"Kích hoạt":"Chưa kích hoạt"}}</p></td>
@@ -58,6 +60,9 @@
           </ng-template>
         </p-table>
       </div>
+    </div>
+  </div>
+
   <p-dialog [(visible)]="bookDialog" [style]="{width: '450px'}" (onHide)="hideDialog()" header="{{isEdit?'Chỉnh sửa: '+name?.value:'Tạo mới'}}" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
       <div class="d-flex justify-content-between align-items-center">

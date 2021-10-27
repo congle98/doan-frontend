@@ -3,7 +3,6 @@ import {Author} from "../../common/Author";
 import {AuthorService} from "../../services/author.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AppValidators} from "../../validators/AppValidators";
-import Swal from "sweetalert2";
 import {AlertService} from "../../services/alert.service";
 
 @Component({
