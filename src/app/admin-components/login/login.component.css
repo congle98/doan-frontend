@@ -1,0 +1,14 @@
+.form-container {
+  background:#fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+//position:absolute;
+//margin-top: 100px;
+}
+.bg {
+  background: url("img/pexels-rostislav-uzunov-5011647.jpg") no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}

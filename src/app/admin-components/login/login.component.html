@@ -1,1 +1,30 @@
-<p>login works!</p>
+<div class='container-fluid bg'>
+  <div class='row justify-content-center'>
+    <div class='col-12 col-sm-6 col-md-3 mt-5'>
+      <form class='form-container' [formGroup]='loginForm'>
+        <div class="form-group">
+          <label for="username">Tên đăng nhập</label>
+          <input id="username"  class='form-control'  formControlName="username"/>
+          <div *ngIf="username">
+            <div *ngIf="username.invalid && (username.dirty||username.touched)">
+              <small *ngIf="username.errors?.required"  class="form-text text-muted">Tên đăng nhập không được để trống !</small>
+              <small  *ngIf="username.errors?.minlength" class="form-text text-muted">Tên đăng nhập lớn hơn 2 ký tự !</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Mật khẩu</label>
+          <input id="password" class='form-control' type='password' formControlName="password">
+          <div *ngIf="password">
+            <div *ngIf="password.invalid && (password.dirty||password.touched)">
+              <small *ngIf="password.errors?.required"  class="form-text text-muted">Mật khẩu không được để trống !</small>
+              <small  *ngIf="password.errors?.minlength" class="form-text text-muted">Mật khẩu lớn hơn 2 ký tự !</small>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-block" (click)="onSubmit()">Đăng nhập</button>
+      </form>
+    </div>
+  </div>
+</div>
+

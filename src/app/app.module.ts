@@ -49,6 +49,8 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {ChartModule} from "primeng/chart";
+import {LoginAdminComponent} from "./admin-components/login/login.component";
 
 
 @NgModule({
@@ -75,36 +77,38 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     ListOrderComponent,
     FooterComponent,
     BooksManagerComponent,
-    AuthorManagerComponent
+    AuthorManagerComponent,
+    LoginAdminComponent
 
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    DynamicDialogModule,
-    ToastModule,
-    TableModule,
-    ButtonModule,
-    TabViewModule,
-    MessagesModule,
-    MessageModule,
-    OverlayPanelModule,
-    RippleModule,
-    ToolbarModule,
-    InputTextModule,
-    DialogModule,
-    DropdownModule,
-    RadioButtonModule,
-    InputNumberModule,
-    FormsModule,
-    InputTextareaModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        NgbModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        DynamicDialogModule,
+        ToastModule,
+        TableModule,
+        ButtonModule,
+        TabViewModule,
+        MessagesModule,
+        MessageModule,
+        OverlayPanelModule,
+        RippleModule,
+        ToolbarModule,
+        InputTextModule,
+        DialogModule,
+        DropdownModule,
+        RadioButtonModule,
+        InputNumberModule,
+        FormsModule,
+        InputTextareaModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireStorageModule,
+        ChartModule,
+    ],
   providers: [DialogService,MessageService],
   bootstrap: [AppComponent],
   entryComponents:[ListOrderItemComponent]

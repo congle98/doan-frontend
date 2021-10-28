@@ -15,6 +15,8 @@ import {ListCustomerComponent} from "./admin-components/customer-manager/list-cu
 import {ListOrderComponent} from "./admin-components/order-manager/list-order.component";
 import {BooksManagerComponent} from "./admin-components/books-manager/books-manager.component";
 import {AuthorManagerComponent} from "./admin-components/author-manager/author-manager.component";
+import {AdminGuard} from "./guard/admin.guard";
+import {LoginAdminComponent} from "./admin-components/login/login.component";
 
 const routes: Routes = [
   {
@@ -63,7 +65,12 @@ const routes: Routes = [
     ]
   },
   {
+    path: "admin-login",
+    component: LoginAdminComponent
+  },
+  {
     path:"admin",component:AdminPageComponent,
+    canActivate:[AdminGuard],
     children: [
       {
         path: "",
