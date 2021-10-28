@@ -44,11 +44,11 @@
               <td>{{book.id}}</td>
               <td>{{book.name}}</td>
               <td>{{book.description | slice : 0:20 }}...</td>
-              <td>{{book.price | currency:"VND"}}</td>
-              <td>{{book.salePrice | currency:"VND"}}</td>
+              <td>{{book.price | VndCurrency}}</td>
+              <td>{{book.salePrice | VndCurrency}}</td>
               <td class="d-inline text-center "><p class="text-white" style="border-radius: 20px; padding: 5px;" [class]="book.active?'bg-success':'bg-danger'">{{book.active?"Kích hoạt":"Chưa kích hoạt"}}</p></td>
-              <td>{{book.dateCreated}}</td>
-              <td>{{book.lastUpdated}}</td>
+              <td>{{book.dateCreated | date: 'dd/MM/yyyy'}}</td>
+              <td>{{book.lastUpdated | date: 'dd/MM/yyyy'}}</td>
               <td>{{book.author.name}}</td>
               <td><img src="{{book.imageUrl}}" class="product-image" alt=""></td>
               <td>{{book.bookCategory.name}}</td>

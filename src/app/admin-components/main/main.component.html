@@ -18,7 +18,7 @@
               <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalOrderCompleted}}</div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
+              <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>
@@ -32,7 +32,7 @@
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
                 <a class="text-xs font-weight-bold text-success text-uppercase mb-1"  routerLink="/admin/orders">Tổng doanh thu</a>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalPrice | currency:"VND"}}</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalPrice | VndCurrency}}</div>
             </div>
             <div class="col-auto">
               <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -52,7 +52,7 @@
               <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalQuantity}}</div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+              <i class="fas fa-book fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
               <div class="h5 mb-0 font-weight-bold text-gray-800">{{totalUsers}}</div>
             </div>
             <div class="col-auto">
-              <i class="fas fa-comments fa-2x text-gray-300"></i>
+              <i class="fas fa-users fa-2x text-gray-300"></i>
             </div>
           </div>
         </div>

@@ -17,7 +17,7 @@ export class BookListComponent implements OnInit {
   previousCategoryId: number = 1;
   searchMode: boolean = false;
   thePageNumber:number = 1;
-  thePageSize:number = 8;
+  thePageSize:number = 12;
   theTotalElements: number = 0;
   previousKeyWord: string|null;
   constructor(private bookService:BookService,private route:ActivatedRoute,

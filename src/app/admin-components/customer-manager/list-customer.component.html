@@ -62,7 +62,7 @@
              <td>{{order.totalPrice}}</td>
              <td><div *ngFor="let orderItem of order.orderItems">{{orderItem.book.name+' x'+orderItem.quantity+''}}<hr></div></td>
              <td>{{order.status.name}}</td>
-             <td>{{order.dateCreated}}</td>
+             <td>{{order.dateCreated | date: 'dd/MM/yyyy'}}</td>
            </tr>
          </ng-template>
        </p-table>

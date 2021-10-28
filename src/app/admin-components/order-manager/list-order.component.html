@@ -29,10 +29,10 @@
         <tr>
           <td>{{order.id}}</td>
           <td>{{order.totalQuantity}}</td>
-          <td>{{order.totalPrice| currency:"VND"  }}</td>
+          <td>{{order.totalPrice| VndCurrency }}</td>
           <td>{{order.status.name }}</td>
           <td>{{order.customerName}}</td>
-          <td>{{order.dateCreated}}</td>
+          <td>{{order.dateCreated | date: 'dd/MM/yyyy'}}</td>
           <td>
             <button pButton pRipple icon="pi pi-search" class="p-button-rounded p-button-info mr-3" (click)="detail(order)"></button>
             <button pButton pRipple icon="pi pi-times" class="p-button-rounded p-button-danger mr-3" *ngIf="order.status.id==1" (click)="changeStatus(order,4)"></button>

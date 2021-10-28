@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {AppValidators} from "../../validators/AppValidators";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AlertService} from "../../services/alert.service";
 
 @Component({
@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
               private router: Router,
-              private alertService:AlertService
+              private alertService:AlertService,
+              private route:ActivatedRoute
               ) {
   }
 
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.controls["password"].value;
     this.authService.login(userName, password).subscribe((sussces) => {
         this.authService.loginSuccess(sussces);
+        this.router.navigate([""],{relativeTo:this.route})
         this.loginForm.reset();
       },
       (error) => {

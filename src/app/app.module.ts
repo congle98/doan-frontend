@@ -51,10 +51,12 @@ import {environment} from "../environments/environment";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {ChartModule} from "primeng/chart";
 import {LoginAdminComponent} from "./admin-components/login/login.component";
+import {CurrencyVndPipe} from "./common/pipe/CurrencyVndPipe";
 
 
 @NgModule({
   declarations: [
+    CurrencyVndPipe,
     AppComponent,
     ShopPageComponent,
     AdminPageComponent,

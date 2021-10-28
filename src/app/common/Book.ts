@@ -13,4 +13,5 @@ export class Book {
   author: Author;
   imageUrl: string;
   bookCategory: BookCategory;
+  sold:number;
 }
