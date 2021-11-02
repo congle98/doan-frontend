@@ -52,6 +52,10 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {ChartModule} from "primeng/chart";
 import {LoginAdminComponent} from "./admin-components/login/login.component";
 import {CurrencyVndPipe} from "./common/pipe/CurrencyVndPipe";
+import { AdvertisementComponent } from './components/advertisement/advertisement.component';
+import {CarouselModule} from "primeng/carousel";
+import { TopSoldComponent } from './components/top-sold/top-sold.component';
+
 
 
 @NgModule({
@@ -80,37 +84,40 @@ import {CurrencyVndPipe} from "./common/pipe/CurrencyVndPipe";
     FooterComponent,
     BooksManagerComponent,
     AuthorManagerComponent,
-    LoginAdminComponent
+    LoginAdminComponent,
+    AdvertisementComponent,
+    TopSoldComponent,
 
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        NgbModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        DynamicDialogModule,
-        ToastModule,
-        TableModule,
-        ButtonModule,
-        TabViewModule,
-        MessagesModule,
-        MessageModule,
-        OverlayPanelModule,
-        RippleModule,
-        ToolbarModule,
-        InputTextModule,
-        DialogModule,
-        DropdownModule,
-        RadioButtonModule,
-        InputNumberModule,
-        FormsModule,
-        InputTextareaModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireStorageModule,
-        ChartModule,
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    DynamicDialogModule,
+    ToastModule,
+    TableModule,
+    ButtonModule,
+    TabViewModule,
+    MessagesModule,
+    MessageModule,
+    OverlayPanelModule,
+    RippleModule,
+    ToolbarModule,
+    InputTextModule,
+    DialogModule,
+    DropdownModule,
+    RadioButtonModule,
+    InputNumberModule,
+    FormsModule,
+    InputTextareaModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    ChartModule,
+    CarouselModule,
+  ],
   providers: [DialogService,MessageService],
   bootstrap: [AppComponent],
   entryComponents:[ListOrderItemComponent]

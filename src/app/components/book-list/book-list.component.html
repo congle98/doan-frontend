@@ -1,13 +1,14 @@
 <div class="main-content">
-  <div class="section-content section-content-p30">
+  <app-top-sold></app-top-sold>
+  <div class="section-content section-content-p30 mt-3">
     <div class="container-fluid">
       <div class="row">
-        <div *ngFor="let book of books" class="col-md-2">
+        <div *ngFor="let book of books" class="col-6 col-md-2">
           <div class="card mb-3">
             <div class="image-container ">
               <div class="first">
                 <div class="d-flex justify-content-between align-items-center"> <span *ngIf="book.price!=0&&(book.salePrice/book.price)!=0" class="discount">SALE {{((book.salePrice/book.price)*100).toFixed(1)+'%'}}</span></div>
-              </div> <img src="{{book.imageUrl}}" style="height: 200px; width: 100%" class="img-fluid rounded thumbnail-image">
+              </div> <img src="{{book.imageUrl}}" style="height: 150px; width: 100%" class="img-fluid rounded thumbnail-image">
             </div>
             <div class="p-2 pt-4">
               <div style="line-height: 15px">
@@ -17,7 +18,7 @@
                   <div><small class="old-price text-right">{{book.price| VndCurrency}}</small> </div>
                 </div>
               </div>
-              <hr>
+              <hr class="my-2">
               <div class="d-flex align-items-end">
                   <button  (click)="addToCart(book)"  class="buy"><i class="fas fa-2x fa-cart-plus"></i></button>
               </div>

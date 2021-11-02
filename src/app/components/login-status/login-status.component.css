@@ -1,0 +1,16 @@
+.login-status-header {
+  display:flex;
+  justify-content: end;
+}
+.my-link-navbar {
+  margin-right: 10px ;
+  margin-left: 10px ;
+  padding: 5px 10px;
+}
+.my-link-navbar  a{
+  color: #6b6b6b;
+}
+.my-link-navbar:hover {
+  background-color: #f8f8f8;
+  cursor: pointer;
+}

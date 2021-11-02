@@ -1,0 +1,169 @@
+/*.product-item .product-item-content {*/
+/*  border: 1px solid var(--surface-d);*/
+/*  border-radius: 3px;*/
+/*  margin: .3rem;*/
+/*  text-align: center;*/
+/*  padding: 2rem 0;*/
+/*}*/
+
+/*.product-item .product-image {*/
+/*  width: 200px;*/
+/*  height: 220px;*/
+/*  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)*/
+/*}*/
+
+.new-label-pro-sale{
+  background-color: #F7941E;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-top: 0px !important;
+  z-index: 1;
+}
+.new-p-sale-label{
+  color: #ffffff;
+  font-size: 1em !important;
+  font-weight: 600;
+}
+.ma-box-content {
+  padding: 10px;
+}
+.ma-box-content .products {
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.product.images-container {
+  text-align: center;
+}
+.item-inner .images-container {
+  overflow: hidden;
+}
+.product-image {
+  position: relative;
+}
+.flashsale-image-container {
+  padding: 0.5em;
+}
+.outstock-container {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.images-container .product-image img {
+  max-height: 190px;
+}
+.product-name-no-ellipsis{
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-top: 0.5em;
+  display: block;
+}
+.flashsale-price {
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  margin-top: 4px;
+}
+.flashsale-price-special {
+  font-size: 1.35em;
+  color: #F7941E;
+  font-weight: 600;
+}
+.flashsale-price-old {
+  color: #888888;
+  text-decoration: line-through;
+  font-size: 1.1em;
+}
+.episode-label {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+.progress {
+  border-radius: 20px;
+  margin-bottom: 0px;
+  text-align: center;
+  margin-top: 5px;
+  background-color: rgba(210, 33, 33, 0.4);
+  background-image: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  height: 18px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.progress-value {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 7px;
+  bottom: 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+.progress-bar {
+  background-image: linear-gradient(to bottom, #D22121 0%, #D22121 100%);
+}
+
+
+.flashsale-header {
+  background-color: #FCDAB0;
+  height: 50px;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+.flashsale-header-title {
+  font-weight: 550;
+  margin-left: 10px;
+  font-size: 1.31em;
+  color: #1F1D1D;
+}
+.flashsale-header .split {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  border-left: 2px solid #646464;
+  height: 20px;
+}
+.flashsale-page-countdown-label {
+  font-size: 1.1em;
+  font-weight: 300;
+  color: #000;
+  margin-right: 10px;
+}
+.flashsale-countdown{
+  color: #fff;
+  font-size: 16px;
+  padding-right: 5px;
+  display: inline-block;
+  margin-top: 5px;
+  margin-bottom: 7px;
+}
+.flashsale-countdown-number{
+  padding: 4px 8px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+.distance-time{
+  color: #000000;
+  font-size: 1.3rem;
+  padding:0 2px;
+}

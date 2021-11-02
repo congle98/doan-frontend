@@ -34,6 +34,14 @@ export class BookService {
     return this.httpClient.put<Book>(this.url,book);
   }
 
+  getAllTopSale():Observable<Book[]>{
+    return this.httpClient.get<Book[]>(this.url+"/top-sale");
+  }
+
+  getAllTopSold():Observable<Book[]>{
+    return this.httpClient.get<Book[]>(this.url+"/top-sold");
+  }
+
   //
   // getBook(theProductId: number):Observable<Book> {
   //   const searchUrl = this.url+"/products/"

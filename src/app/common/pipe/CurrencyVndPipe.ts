@@ -11,6 +11,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({name: 'VndCurrency'})
 export class CurrencyVndPipe implements PipeTransform {
   transform(value: number): string {
-    return value.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+    return value.toLocaleString('vi', {style : 'currency', currency : 'VND'});
   }
 }

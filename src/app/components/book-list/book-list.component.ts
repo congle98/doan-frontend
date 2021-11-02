@@ -13,7 +13,7 @@ import {CartItem} from "../../common/CartItem";
 export class BookListComponent implements OnInit {
 
   books: Book[] = [];
-  currentCategoryId: number = 1;
+  currentCategoryId: number = 0;
   previousCategoryId: number = 1;
   searchMode: boolean = false;
   thePageNumber:number = 1;
