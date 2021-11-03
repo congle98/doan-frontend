@@ -1,8 +1,10 @@
-<div class="cart-area d-n">
+<div class="cart-area d-flex align-items-center">
     <div class="total">
-      <button (click)="op.toggle($event)">{{totalPrice|VndCurrency}} <span> {{totalQuantity}}</span></button>
+      <button class="text-white" (click)="op.toggle($event)">{{totalPrice|VndCurrency}} <span class="text-dark"> {{totalQuantity}}</span></button>
     </div>
-    <a routerLink="/cart-details"><i class="fa fa-shopping-cart text-info" aria-hidden="true"></i></a>
+    <div>
+      <a routerLink="/cart-details"><i class="fa fa-shopping-cart text-white my-cart-click" aria-hidden="true"></i></a>
+    </div>
 </div>
 <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '350px'}">
   <ng-template pTemplate>

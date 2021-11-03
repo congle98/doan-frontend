@@ -109,13 +109,11 @@ a,a:hover{
 .page-wrapper{
   overflow:hidden;
   background:#e5e5e5;
-  padding-bottom:8vh
 }
 
 .page-container{
   background:#fefefe;
   padding-left:200px;
-  padding-top: 30px;
 }
 
 .main-content{
@@ -136,7 +134,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
  */
 
 .header-desktop{
-  background:#e7e7e7;
+  background:#d70018;
   -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
   -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
   box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
@@ -252,7 +250,7 @@ input.au-input.au-input-xl{
 }
 
 .total{
-  background:#42b9f5;
+  background:#730eba;
   line-height:43px;
   color:#fff;
   border-radius:30px;
@@ -287,11 +285,10 @@ input.au-input.au-input-xl{
   -webkit-border-radius:3px;
   -moz-border-radius:3px;
   border-radius:43px;
-  background:#42b9f5;
 }
 
 .au-btn-submit:hover{
-  background: #009eda;
+  background-color: #df3346;
 }
 
 .au-btn-submit>i{
@@ -12412,4 +12409,15 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
+}
+.my-btn-nav{
+  color:#fff;
+  padding: 5px 10px;
+  transition: all 0.3s;
+  border-radius: 7px;
+  margin: 0 10px;
+}
+.my-btn-nav:hover {
+  background-color: #df3346;
+  cursor: pointer;
 }

@@ -1,16 +1,16 @@
 <div class="login-status-header">
-  <div class="my-link-navbar">
-    <a *ngIf="isAuthenticated && userFullName" class="login-status-user-info" routerLink="/profile">
+  <div class="my-btn-nav">
+    <a *ngIf="isAuthenticated && userFullName" class="text-white" routerLink="/profile">
       Xin chào: {{ userFullName }}!
     </a>
-    <a *ngIf="!isAuthenticated" routerLink="/login" class="security-btn">Đăng Nhập</a>
+    <a *ngIf="!isAuthenticated" routerLink="/login" class="text-white">Đăng Nhập</a>
   </div>
-  <div class="my-link-navbar">
-    <a *ngIf="isAuthenticated" routerLink="/order-history" class="security-btn">Lịch sử giao dịch</a>
-    <a *ngIf="!isAuthenticated" routerLink="/register" class="security-btn">Đăng ký</a>
+  <div class="my-btn-nav">
+    <a *ngIf="isAuthenticated" routerLink="/order-history" class="text-white">Lịch sử giao dịch</a>
+    <a *ngIf="!isAuthenticated" routerLink="/register" class="text-white">Đăng ký</a>
   </div>
-  <div class="my-link-navbar">
-    <a *ngIf="isAuthenticated" (click)="logOut()" class="security-btn">Đăng xuất</a>
+  <div class="my-btn-nav">
+    <a *ngIf="isAuthenticated" (click)="logOut()" class="text-white">Đăng xuất</a>
   </div>
 
 
