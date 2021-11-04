@@ -321,7 +321,7 @@ input.au-input.au-input-xl{
 }
 .menu-sidebar:after {
   content: "";
-  background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url(assets/img/sidebar-backgroup.jpeg);
+  background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .5)), url(assets/img/sidebar-backgroup.jpeg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

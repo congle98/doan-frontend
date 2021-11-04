@@ -1,0 +1,4 @@
+.some-custom-class-name::ng-deep th {
+  background-color: #df3346 !important;
+  color:white !important;
+}
