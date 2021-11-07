@@ -1,99 +1,199 @@
-<div class="main-content page-m">
-  <div class="section-content section-content-p30 e-spc">
-    <div class="container-fluid">
-      <form [formGroup]="checkoutFormGroup">
-          <h3>Customer</h3>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="input-space">
-                <input type="text" formControlName="fullName" placeholder="Mời nhập họ tên">
-                <div *ngIf="fullName">
-                  <div *ngIf="fullName.invalid && (fullName.dirty||fullName.touched)" class="alert alert-danger mt-1">
-                    <div *ngIf="fullName.errors?.required||fullName.errors?.Whitespace">
-                      Họ tên không được để trống !
+
+<!--    <div class="container-fluid">-->
+<!--      <form [formGroup]="checkoutFormGroup">-->
+<!--          <h3>Customer</h3>-->
+<!--          <div class="row">-->
+<!--            <div class="col-md-6">-->
+<!--              <div class="input-space">-->
+<!--                <input type="text" formControlName="fullName" placeholder="Mời nhập họ tên">-->
+<!--                <div *ngIf="fullName">-->
+<!--                  <div *ngIf="fullName.invalid && (fullName.dirty||fullName.touched)" class="alert alert-danger mt-1">-->
+<!--                    <div *ngIf="fullName.errors?.required||fullName.errors?.Whitespace">-->
+<!--                      Họ tên không được để trống !-->
+<!--                    </div>-->
+<!--                    <div *ngIf="fullName.errors?.minlength">-->
+<!--                      Họ tên phải lớn hơn 2 ký tự !-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-md-6">-->
+<!--              <div class="input-space">-->
+<!--                <input type="text" formControlName="phone" placeholder="Mời nhập số điện thoại">-->
+<!--                <div *ngIf="phone">-->
+<!--                  <div *ngIf="phone.invalid && (phone.dirty||phone.touched)" class="alert alert-danger mt-1">-->
+<!--                    <div *ngIf="phone.errors?.required">-->
+<!--                      Số điện thoại không được để trống !-->
+<!--                    </div>-->
+<!--                    <div *ngIf="phone.errors?.pattern">-->
+<!--                     Vui lòng nhập đúng định dạng số điện thoại !-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="clearfix"></div>-->
+<!--            <div class="col-md-6">-->
+<!--              <div class="input-space">-->
+<!--                <input type="text" formControlName="email" placeholder="Mời nhập địa chỉ email">-->
+<!--                <div *ngIf="email">-->
+<!--                  <div *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger mt-1">-->
+<!--                    <div *ngIf="email.errors?.required">-->
+<!--                      Email không được để trống !-->
+<!--                    </div>-->
+<!--                    <div *ngIf="email.errors?.pattern">-->
+<!--                      Vui lòng nhập đúng định dạng Email !-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        <div class="row">-->
+<!--          <div class="col-md-12">-->
+<!--            <div class="input-space">-->
+<!--              <select formControlName="city">-->
+<!--                <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>-->
+<!--              </select>-->
+<!--              <div *ngIf="city">-->
+<!--                <div *ngIf="city.invalid && (city.dirty||city.touched)" class="alert alert-danger mt-1">-->
+<!--                  <div *ngIf="city.errors?.required">-->
+<!--                    Vui lòng xác định thành phố !-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="col-md-12">-->
+<!--            <div class="input-space">-->
+<!--              <input formControlName="addressDetail" type="text" placeholder="Địa chỉ chi tiết">-->
+<!--              <div *ngIf="addressDetail">-->
+<!--                <div *ngIf="addressDetail.invalid && (addressDetail.dirty||addressDetail.touched)" class="alert alert-danger mt-1">-->
+<!--                  <div *ngIf="addressDetail.errors?.required||addressDetail.errors?.Whitespace">-->
+<!--                    Địa chỉ chi tiết không được để trống !-->
+<!--                  </div>-->
+<!--                  <div *ngIf="addressDetail.errors?.minlength">-->
+<!--                    Địa chỉ chi tiết phải lớn hơn 2 ký tự !-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="form-area">-->
+<!--          <h3>Review Your Order</h3>-->
+<!--          <b>Total Quantity: {{totalQuantity}}</b>-->
+<!--          <h4>Shipping: FREE</h4>-->
+<!--          <B>Total Price: {{totalPrice|currency:"VND"}}</B>-->
+<!--        </div>-->
+<!--        <div class="text-center">-->
+<!--          <button type="submit" (click)="onSubmit()" class="btn btn-info">Purchase</button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+      <div class="container-fluid">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="card rounded-3 text-black ">
+            <div class="row g-0">
+              <div class="col-12">
+                <div class="card-body pt-0">
+                  <div class="mt-3 d-block">
+                    <a routerLink="/" class="btn btn-danger text-white px-4 py-2"><i class="fas fa-home mr-2"></i>Quay lại trang chủ</a>
+                  </div>
+                  <div class="d-flex justify-content-start align-items-center">
+                    <div>
+                      <h1 class="px-4 py-2 bg-danger text-white">Thông tin đặt hàng</h1>
                     </div>
-                    <div *ngIf="fullName.errors?.minlength">
-                      Họ tên phải lớn hơn 2 ký tự !
+                    <div class="text-center">
+                      <img src="./assets/img/bookStoreicon.png" style="width: 150px;" alt="logo">
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="input-space">
-                <input type="text" formControlName="phone" placeholder="Mời nhập số điện thoại">
-                <div *ngIf="phone">
-                  <div *ngIf="phone.invalid && (phone.dirty||phone.touched)" class="alert alert-danger mt-1">
-                    <div *ngIf="phone.errors?.required">
-                      Số điện thoại không được để trống !
+
+                  <form   [formGroup]="checkoutFormGroup">
+                    <div class="form-outline mb-4 form-field-height">
+                      <label class="form-label">Tên người nhận <span class="text-danger">*</span></label>
+                      <input type="text" formControlName="fullName" class="form-control form-control-lg" placeholder="Mời nhập họ tên">
+                      <div *ngIf="fullName">
+                        <div *ngIf="fullName.invalid && (fullName.dirty||fullName.touched)">
+                          <small class="p-error" *ngIf="fullName.errors?.required||fullName.errors?.Whitespace">
+                            Họ tên không được để trống !
+                          </small>
+                          <small  class="p-error" *ngIf="fullName.errors?.minlength">
+                            Họ tên phải lớn hơn 2 ký tự !
+                          </small>
+                        </div>
+                      </div>
                     </div>
-                    <div *ngIf="phone.errors?.pattern">
-                     Vui lòng nhập đúng định dạng số điện thoại !
+                    <div class="form-outline mb-4 form-field-height">
+                      <label class="form-label">Số điện thoại người nhận<span class="text-danger">*</span></label>
+                      <input type="text" formControlName="phone" class="form-control form-control-lg" placeholder="Mời nhập số điện thoại">
+                      <div *ngIf="phone">
+                        <div *ngIf="phone.invalid && (phone.dirty||phone.touched)">
+                          <small class="p-error" *ngIf="phone.errors?.required">
+                            Số điện thoại không được để trống !
+                          </small>
+                          <small class="p-error" *ngIf="phone.errors?.pattern">
+                            Vui lòng nhập đúng định dạng số điện thoại !
+                          </small>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-md-6">
-              <div class="input-space">
-                <input type="text" formControlName="email" placeholder="Mời nhập địa chỉ email">
-                <div *ngIf="email">
-                  <div *ngIf="email.invalid && (email.dirty||email.touched)" class="alert alert-danger mt-1">
-                    <div *ngIf="email.errors?.required">
-                      Email không được để trống !
+                    <div class="form-outline mb-4 form-field-height">
+                      <label class="form-label">Email <span class="text-danger">*</span></label>
+                      <input type="text" formControlName="email" class="form-control form-control-lg" placeholder="Mời nhập địa chỉ email">
+                      <div *ngIf="email">
+                        <div *ngIf="email.invalid && (email.dirty||email.touched)">
+                          <small class="p-error" *ngIf="email.errors?.required">
+                            Email không được để trống !
+                          </small>
+                          <small class="p-error" *ngIf="email.errors?.pattern">
+                            Vui lòng nhập đúng định dạng email
+                          </small>
+                        </div>
+                      </div>
                     </div>
-                    <div *ngIf="email.errors?.pattern">
-                      Vui lòng nhập đúng định dạng Email !
+                    <div class="form-outline mb-4 form-field-height">
+                      <label class="form-label">Thành phố<span class="text-danger">*</span></label><br>
+                      <p-dropdown [options]="cities" formControlName="city" placeholder="Chọn thành phố" optionLabel="name" [showClear]="city?.valid?true:false"></p-dropdown>
+                      <div *ngIf="city">
+                        <div *ngIf="city.invalid && (city.dirty||city.touched)">
+                          <small class="p-error" *ngIf="city.errors?.required">
+                            Vui lòng xác định thành phố !
+                          </small>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="input-space">
-              <select formControlName="city">
-                <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
-              </select>
-              <div *ngIf="city">
-                <div *ngIf="city.invalid && (city.dirty||city.touched)" class="alert alert-danger mt-1">
-                  <div *ngIf="city.errors?.required">
-                    Vui lòng xác định thành phố !
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="input-space">
-              <input formControlName="addressDetail" type="text" placeholder="Địa chỉ chi tiết">
-              <div *ngIf="addressDetail">
-                <div *ngIf="addressDetail.invalid && (addressDetail.dirty||addressDetail.touched)" class="alert alert-danger mt-1">
-                  <div *ngIf="addressDetail.errors?.required||addressDetail.errors?.Whitespace">
-                    Địa chỉ chi tiết không được để trống !
-                  </div>
-                  <div *ngIf="addressDetail.errors?.minlength">
-                    Địa chỉ chi tiết phải lớn hơn 2 ký tự !
-                  </div>
+                    <div class="form-outline mb-4 form-field-height">
+                      <label class="form-label">Địa chỉ chi tiết<span class="text-danger">*</span></label>
+                      <input formControlName="addressDetail"  class="form-control form-control-lg" type="text" placeholder="Địa chỉ chi tiết">
+                      <div *ngIf="addressDetail">
+                        <div *ngIf="addressDetail.invalid && (addressDetail.dirty||addressDetail.touched)">
+                          <small class="p-error" *ngIf="addressDetail.errors?.required||addressDetail.errors?.Whitespace">
+                            Địa chỉ chi tiết không được để trống !
+                          </small>
+                          <small class="p-error" *ngIf="addressDetail.errors?.minlength">
+                            Địa chỉ chi tiết phải lớn hơn 2 ký tự !
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-area" style="font-size: 1.1rem">
+                      <h3>Thông tin đơn hàng</h3>
+                      <b>Tổng số lượng: {{totalQuantity}}</b><br><br>
+                      <B>Tổng số tiền: <span style="color:#f9a037 ">{{totalPrice|VndCurrency}}</span></B>
+                    </div>
+                    <div class="text-center">
+                      <a routerLink="/cart-details" class="btn btn-info text-white"><i class="fas fa-long-arrow-alt-left mr-2"></i>Quay lại giỏ hàng</a>
+                      <button type="submit" (click)="onSubmit()" class="btn btn-danger ml-5">Xác nhận</button>
+                    </div>
+                  </form>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="form-area">
-          <h3>Review Your Order</h3>
-          <b>Total Quantity: {{totalQuantity}}</b>
-          <h4>Shipping: FREE</h4>
-          <B>Total Price: {{totalPrice|currency:"VND"}}</B>
-        </div>
-        <div class="text-center">
-          <button type="submit" (click)="onSubmit()" class="btn btn-info">Purchase</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
+      </div>
 
 

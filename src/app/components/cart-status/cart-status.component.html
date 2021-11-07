@@ -1,5 +1,5 @@
 <div class="cart-area d-flex align-items-center">
-    <div class="total">
+    <div class="total text-center">
       <button class="text-white" (click)="op.toggle($event)">{{totalPrice|VndCurrency}} <span class="text-dark"> {{totalQuantity}}</span></button>
     </div>
     <div>
@@ -21,10 +21,10 @@
     <div>
       <div class="d-flex m-2 justify-content-around">
         <b>Số lượng: {{totalQuantity}}</b>
-        <b>Tổng tiền: {{totalPrice|VndCurrency}}</b>
+        <b>Tổng tiền: <span style="color:#f9a037 ">{{totalPrice|VndCurrency}}</span></b>
       </div>
       <div class="text-center d-block">
-        <button class="btn btn-primary btn-lg" routerLink="/cart-details">Đặt hàng</button>
+        <button class="btn btn-danger btn-sm" routerLink="/cart-details">Đặt hàng</button>
       </div>
     </div>
 

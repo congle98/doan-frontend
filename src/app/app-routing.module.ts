@@ -17,6 +17,7 @@ import {BooksManagerComponent} from "./admin-components/books-manager/books-mana
 import {AuthorManagerComponent} from "./admin-components/author-manager/author-manager.component";
 import {AdminGuard} from "./guard/admin.guard";
 import {LoginAdminComponent} from "./admin-components/login/login.component";
+import {ProfileComponent} from "./components/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -25,12 +26,12 @@ const routes: Routes = [
       {
         path:"", redirectTo:"/books", pathMatch:"full"
       },
-      {
-       path:"login", component:LoginComponent
-      },
-      {
-        path:"register", component:RegisterComponent
-      },
+      // {
+      //  path:"login", component:LoginComponent
+      // },
+      // {
+      //   path:"register", component:RegisterComponent
+      // },
       {
         path:"books/:id", component:BookDetailComponent
       },

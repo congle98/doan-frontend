@@ -55,6 +55,13 @@ import {CurrencyVndPipe} from "./common/pipe/CurrencyVndPipe";
 import { AdvertisementComponent } from './components/advertisement/advertisement.component';
 import {CarouselModule} from "primeng/carousel";
 import { TopSoldComponent } from './components/top-sold/top-sold.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {PaginatorModule} from "primeng/paginator";
+import { ProfileComponent } from './components/profile/profile.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 
@@ -87,37 +94,44 @@ import { TopSoldComponent } from './components/top-sold/top-sold.component';
     LoginAdminComponent,
     AdvertisementComponent,
     TopSoldComponent,
+    ProfileComponent,
+    ResetPasswordComponent,
+    ChangePasswordComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    NgbModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    DynamicDialogModule,
-    ToastModule,
-    TableModule,
-    ButtonModule,
-    TabViewModule,
-    MessagesModule,
-    MessageModule,
-    OverlayPanelModule,
-    RippleModule,
-    ToolbarModule,
-    InputTextModule,
-    DialogModule,
-    DropdownModule,
-    RadioButtonModule,
-    InputNumberModule,
-    FormsModule,
-    InputTextareaModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule,
-    ChartModule,
-    CarouselModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        NgbModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        DynamicDialogModule,
+        ToastModule,
+        TableModule,
+        ButtonModule,
+        TabViewModule,
+        MessagesModule,
+        MessageModule,
+        OverlayPanelModule,
+        RippleModule,
+        ToolbarModule,
+        InputTextModule,
+        DialogModule,
+        DropdownModule,
+        RadioButtonModule,
+        InputNumberModule,
+        FormsModule,
+        MatDialogModule,
+        InputTextareaModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireStorageModule,
+        ChartModule,
+        CarouselModule,
+        MatFormFieldModule,
+        MatInputModule,
+        PaginatorModule,
+    ],
   providers: [DialogService,MessageService],
   bootstrap: [AppComponent],
   entryComponents:[ListOrderItemComponent]

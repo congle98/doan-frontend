@@ -1,24 +1,18 @@
 <div class="login-status-header">
-  <div class="my-btn-nav">
-    <a *ngIf="isAuthenticated && userFullName" class="text-white" routerLink="/profile">
-      Xin chào: {{ userFullName }}!
-    </a>
-    <a *ngIf="!isAuthenticated" routerLink="/login" class="text-white">Đăng Nhập</a>
-  </div>
-  <div class="my-btn-nav">
-    <a *ngIf="isAuthenticated" routerLink="/order-history" class="text-white">Lịch sử giao dịch</a>
-    <a *ngIf="!isAuthenticated" routerLink="/register" class="text-white">Đăng ký</a>
-  </div>
-  <div class="my-btn-nav">
-    <a *ngIf="isAuthenticated" (click)="logOut()" class="text-white">Đăng xuất</a>
-  </div>
-
-
-
-
-
-
-
-
-
+    <div class="my-btn-nav">
+      <a *ngIf="isAuthenticated && user" class="text-white" (click)="showProfileDialog()">
+        Xin chào: {{ user.fullName }}!<img src="{{user.avatarUrl}}" class="img-radius" style="width: 45px; margin-left: 5px" alt="">
+      </a>
+      <!--    <a *ngIf="!isAuthenticated" routerLink="/login" class="text-white">Đăng Nhập</a>-->
+      <button *ngIf="!isAuthenticated" class="text-white" (click)="showLoginDialog()">Đăng nhập</button>
+    </div>
+    <div class="my-btn-nav">
+      <a *ngIf="isAuthenticated" routerLink="/order-history" class="text-white">Lịch sử giao dịch</a>
+      <!--    <a *ngIf="!isAuthenticated" routerLink="/register" class="text-white">Đăng ký</a>-->
+      <button *ngIf="!isAuthenticated" class="text-white" (click)="showRegisterDialog()">Đăng ký</button>
+    </div>
+    <div class="my-btn-nav">
+      <a *ngIf="isAuthenticated" (click)="logOut()" class="text-white">Đăng xuất</a>
+    </div>
 </div>
+

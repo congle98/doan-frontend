@@ -1,12 +1,28 @@
-<aside class="menu-sidebar d-none d-lg-block">
+<aside class="menu-sidebar">
   <div class="menu-sidebar-content js-scrollbar1">
     <nav class="navbar-sidebar">
       <ul class="list-unstyled navbar-list">
-        <li>
-          <a routerLink="/category/0"  routerLinkActive="active-link">Tất cả</a>
+        <li class="d-md-none">
+          <a *ngIf="isAuthenticated && user" class="category-link text-center " (click)="showProfileDialog()">
+            Xin chào: {{ user.fullName }}! <img src="{{user.avatarUrl}}" class="img-radius" style="width: 100px;" alt="">
+          </a>
+          <a *ngIf="!isAuthenticated" class="category-link text-center " (click)="showLoginDialog()">Đăng nhập</a>
         </li>
-        <li *ngFor="let bookCategory of categories">
-          <a routerLink="/category/{{bookCategory.id}}"  routerLinkActive="active-link">{{bookCategory.name}}</a>
+        <li class="d-md-none mt-3">
+          <a *ngIf="isAuthenticated" routerLink="/order-history" class="category-link text-center ">Lịch sử giao dịch</a>
+          <!--    <a *ngIf="!isAuthenticated" routerLink="/register" class="text-white">Đăng ký</a>-->
+          <a *ngIf="!isAuthenticated" class="category-link text-center " (click)="showRegisterDialog()">Đăng ký</a>
+        </li>
+        <hr class="d-md-none">
+        <li class="mt-3">
+          <a  (click)="bookCategory(0)" class=" category-link text-center" >Tất cả</a>
+        </li>
+        <li *ngFor="let c of categories" class="mt-3">
+          <a (click)="bookCategory(c.id)"  class="  category-link text-center" >{{c.name}}</a>
+        </li>
+        <hr class="d-md-none">
+        <li class="d-md-none mt-3">
+          <a *ngIf="isAuthenticated" (click)="logOut()" class=" category-link text-center">Đăng xuất</a>
         </li>
       </ul>
     </nav>

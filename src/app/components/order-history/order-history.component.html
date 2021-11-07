@@ -10,7 +10,6 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th>Mã đơn hàng</th>
           <th>Tổng tiền</th>
           <th>Số lượng sản phẩm</th>
           <th>Thao tác</th>
@@ -21,9 +20,6 @@
       </ng-template>
       <ng-template pTemplate="body" let-tempOrderHistory>
         <tr>
-          <td>
-            {{ tempOrderHistory.orderTrackingNumber }}
-          </td>
           <td>
             {{ tempOrderHistory.totalPrice | currency: 'VND' }}
           </td>

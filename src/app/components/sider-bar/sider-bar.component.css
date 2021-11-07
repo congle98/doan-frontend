@@ -9,3 +9,14 @@
 /*.my-category-link:hover {*/
 /*  color: #2e2f37;*/
 /*}*/
+.category-link{
+  background-color: #df3346;
+  transition: all 0.3s;
+  border-radius: 5px;
+  color: #fff !important;
+}
+.category-link:hover {
+  color:#fca63f !important;
+  background-color: #bb15dc;
+  cursor: pointer;
+}

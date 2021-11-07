@@ -1,7 +1,10 @@
 <div class="page-wrapper">
 
   <!-- MENU SIDEBAR-->
-  <app-sider-bar></app-sider-bar>
+  <div class="d-none d-lg-block">
+    <app-sider-bar></app-sider-bar>
+  </div>
+
   <!-- END MENU SIDEBAR-->
   <div style="position: relative; top: 0; left: 0; right: 0;z-index:3">
     <a routerLink="/category/0" style="width: 100%">
@@ -10,13 +13,28 @@
   </div>
   <header class="header-desktop">
     <div class="section-content section-content-p30">
-      <div class="container-fluid">
+      <div class="container-fluid p-0">
         <div class="header-wrap">
+          <div class="d-block d-md-none mr-1">
+            <button class="btn" type="button" (click)="openDialog()">
+              <div class="bg-light line"></div>
+              <div class="bg-light line"></div>
+              <div class="bg-light line"></div>
+            </button>
+          </div>
+          <div>
             <app-search></app-search>
+          </div>
+          <div class="d-md-block d-none">
             <app-login-status></app-login-status>
+          </div>
+          <div class="ml-2">
             <app-cart-status></app-cart-status>
+          </div>
         </div>
-        <div class="account-wrap"></div>
+<!--        <div class="d-block d-md-none">-->
+<!--            <app-login-status></app-login-status>-->
+<!--        </div>-->
       </div>
     </div>
   </header>
@@ -35,7 +53,10 @@
       </div>
     </div>
 
-
+<!--    <p-dialog header="Header" [(visible)]="showSidebar" [style]="{width: '250px', top:'0px', left:'0px',position:'fixed'}">-->
+<!--&lt;!&ndash;      <app-login-status></app-login-status>&ndash;&gt;-->
+<!--      <app-sider-bar></app-sider-bar>-->
+<!--    </p-dialog>-->
     <!-- END MAIN CONTENT-->
 
   </div>
@@ -71,24 +92,17 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-4">
+      <div class="col-6">
         <ul class="d-flex flex-column">
           <li><a href="#" class="fw-bold">CONG LE STORE</a></li>
           <li><a href="#">Địa chỉ:  Số 298 Đ. Cầu Diễn, Minh Khai, Bắc Từ Liêm, Hà Nội
             Hotline: 0342910909 Email: lethanhcongcnhn@gmail.com</a></li>
         </ul>
       </div>
-      <div class="col-4">
+      <div class="col-6">
         <ul class="d-flex flex-column">
-          <li><a href="#" class="fw-bold">CHẤP NHẬN THANH TOÁN</a></li>
-          <li><a href="#">Chính sách bảo mật</a></li>
-        </ul>
-      </div>
-      <div class="col-4">
-        <ul class="d-flex flex-column">
-          <li><a href="#" class="fw-bold">KHIẾU NẠI & CHĂM SÓC KHÁCH HÀNG</a></li>
-          <li><a href="#">0342910909
-            ( Miễn phí cuộc gọi )</a></li>
+          <li><a href="#" class="fw-bold">CHẤP NHẬN THANH TOÁN</a>
+            <img src="./assets/img/thanhtoan.png" alt=""></li>
         </ul>
       </div>
     </div>

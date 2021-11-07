@@ -21,7 +21,7 @@
           <th pSortableColumn="username">Tên tài khoản<p-sortIcon field="username"></p-sortIcon></th>
           <th pSortableColumn="email">Email<p-sortIcon field="email"></p-sortIcon></th>
           <th pSortableColumn="phone">Số điện thoại<p-sortIcon field="phone"></p-sortIcon></th>
-          <th pSortableColumn="status">Trạng thái<p-sortIcon field="status"></p-sortIcon></th>
+<!--          <th pSortableColumn="status">Trạng thái<p-sortIcon field="status"></p-sortIcon></th>-->
           <th>Thao tác</th>
         </tr>
       </ng-template>
@@ -32,10 +32,10 @@
           <td>{{user.username}}</td>
           <td>{{user.email}}</td>
           <td>{{user.phone}}</td>
-          <td>{{user.status?"Hoạt động":"Khoá"}}</td>
+<!--          <td>{{user.status?"Hoạt động":"Khoá"}}</td>-->
           <td>
             <button pButton pRipple label="Thông tin hoạt động" class="p-button-rounded p-button-info mr-3" (click)="detail(user)"></button>
-            <button pButton pRipple label="{{user.status?'Khoá':'Mở khoá'}}" class="p-button-rounded p-button-danger mr-3" (click)="changeActive(user)"></button>
+<!--            <button pButton pRipple label="{{user.status?'Khoá':'Mở khoá'}}" class="p-button-rounded p-button-danger mr-3" (click)="changeActive(user)"></button>-->
           </td>
         </tr>
       </ng-template>

@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {AppValidators} from "../../validators/AppValidators";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AlertService} from "../../services/alert.service";
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,6 @@ import {AlertService} from "../../services/alert.service";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
               private router: Router,
@@ -43,15 +43,19 @@ export class LoginComponent implements OnInit {
     }
     let userName = this.loginForm.controls["username"].value;
     let password = this.loginForm.controls["password"].value;
-    this.authService.login(userName, password).subscribe((sussces) => {
-        this.authService.loginSuccess(sussces);
-        this.router.navigate([""],{relativeTo:this.route})
+    this.authService.login(userName, password).subscribe((success) => {
+        this.authService.loginSuccess(success);
+        this.alertService.alertSuccess("Đăng nhập thành công hãy bắt đầu mua sắm !")
+        this.authService.changeDialogSubject();
         this.loginForm.reset();
       },
       (error) => {
         this.alertService.alertFail(error.error.message);
       }
     );
+  }
+  showRegisterDialog(string:string){
+    this.authService.changeLoginRegisterSubject(string);
   }
 
 }

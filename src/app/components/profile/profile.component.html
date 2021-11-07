@@ -1,0 +1,51 @@
+<div class="p-0" style="width: 350px">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12">
+        <div class="card user-card-full">
+          <ul class="popup-login-tab">
+
+            <li class="popup-login-tab-item active"  style="width: 50%">
+              Thông tin cá nhân
+            </li>
+            <li class="popup-login-tab-item" style="width: 50%">
+              <a (click)="showChangePasswordDialog()">Đổi mật khẩu</a>
+            </li>
+          </ul>
+          <div class="row m-l-0 m-r-0">
+            <div class="col-12 bg-c-lite-green user-profile">
+              <div class="card-block text-center text-white">
+                <div class="m-b-25"> <img src="{{user.avatarUrl}}" class="img-radius" alt="User-Profile-Image"> </div>
+                <h6 class="f-w-600">{{user.fullName}}</h6>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card-block">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <p class="m-b-10 f-w-600">Tên tài khoản</p>
+                    <h6 class="text-muted f-w-400">{{user.username}}</h6>
+                  </div>
+                  <div class="col-sm-12">
+                    <p class="m-b-10 f-w-600">Email</p>
+                    <h6 class="text-muted f-w-400">{{user.email}}</h6>
+                  </div>
+                  <div class="col-sm-12">
+                    <p class="m-b-10 f-w-600">Số điện thoại</p>
+                    <h6 class="text-muted f-w-400">{{user.phone}}</h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Tổng số đơn hàng đã mua</p>
+                    <h6 class="text-muted f-w-400">{{user.phone}}</h6>
+                  </div>
+                  <div class="col-sm-6">
+                    <p class="m-b-10 f-w-600">Tồng số tiền đã thanh toán</p>
+                    <h6 class="text-muted f-w-400">{{user.phone}}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

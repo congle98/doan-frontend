@@ -38,8 +38,8 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
   show(data:OrderItem[]) {
     this.ref = this.dialogService.open(ListOrderItemComponent, {
       header: 'Chi tiết đơn hàng',
-      width: '50%',
-      contentStyle: {"max-height": "500px", "overflow": "order"},
+      width: '500px',
+      contentStyle: {"max-height": "700px", "overflow": "order"},
       baseZIndex: 10000,
       data: data
     });
