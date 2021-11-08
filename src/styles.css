@@ -12465,3 +12465,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color :#d70018;
   border-bottom: 2px solid #d70018;
 }
+
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+  box-shadow: 3px 3px 5px #dd3675;
+  color:#f0f0f0;
+}

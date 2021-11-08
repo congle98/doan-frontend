@@ -62,6 +62,7 @@ import {PaginatorModule} from "primeng/paginator";
 import { ProfileComponent } from './components/profile/profile.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import {PasswordModule} from "primeng/password";
 
 
 
@@ -131,6 +132,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
         MatFormFieldModule,
         MatInputModule,
         PaginatorModule,
+        PasswordModule,
     ],
   providers: [DialogService,MessageService],
   bootstrap: [AppComponent],

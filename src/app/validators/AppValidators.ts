@@ -1,4 +1,4 @@
-import {FormControl, ValidationErrors} from "@angular/forms";
+import {AbstractControl, FormControl, ValidationErrors, ValidatorFn} from "@angular/forms";
 
 export class AppValidators {
   static notOnlyWhitespace(control:FormControl):ValidationErrors | null {
@@ -10,4 +10,12 @@ export class AppValidators {
       return null
     }
   }
+  static checkPasswords: ValidatorFn = (group: AbstractControl):  ValidationErrors | null => {
+    // @ts-ignore
+    const pass = group.get('newPassword').value;
+    // @ts-ignore
+    const confirmPass = group.get('newPasswordConfirm').value
+    return pass === confirmPass ? null : { notSame: true }
+  }
+
 }

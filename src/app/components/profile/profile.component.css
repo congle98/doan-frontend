@@ -1,5 +1,5 @@
 body {
-  background-color: #f9f9fa
+  background-color: #e3e3e3;
 }
 
 .padding {
@@ -7,14 +7,13 @@ body {
 }
 
 .user-card-full {
-  overflow: hidden
+  overflow: hidden;
 }
 
 .card {
   border-radius: 5px;
   -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
   box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
-  border: none;
   margin-bottom: 30px
 }
 
@@ -27,7 +26,6 @@ body {
 }
 
 .user-card-full .user-profile {
-  border-radius: 5px 0 0 5px
 }
 
 .bg-c-lite-green {
@@ -40,7 +38,7 @@ body {
 }
 
 .card-block {
-  padding: 1.25rem
+  padding: 1.25rem;
 }
 
 .m-b-25 {
@@ -48,8 +46,9 @@ body {
 }
 
 .img-radius {
-  border-radius: 5px;
+  border-radius: 60px;
   width: 120px;
+  height: 120px;
 }
 
 h6 {
@@ -66,9 +65,7 @@ h6 {
   }
 }
 
-.card-block {
-  padding: 1.25rem
-}
+
 
 .b-b-default {
   border-bottom: 1px solid #e0e0e0
@@ -82,7 +79,7 @@ h6 {
   padding-bottom: 5px !important
 }
 
-.card .card-block p {
+.card  p {
   line-height: 25px
 }
 
@@ -131,4 +128,7 @@ h6 {
   margin: 0 10px 0 0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out
+}
+.form-field-height{
+  height: 50px;
 }

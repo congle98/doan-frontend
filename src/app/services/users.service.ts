@@ -17,4 +17,8 @@ export class UsersService {
   changeActive(userId:number):Observable<User>{
     return this.httpClient.put<User>(this.url+"/change-active",userId);
   }
+
+  updateProfile(user:User):Observable<User> {
+    return this.httpClient.put<User>(this.url+"/update-profile",user);
+  }
 }
