@@ -18,9 +18,8 @@ import {finalize} from "rxjs/operators";
 })
 export class ChangePasswordComponent implements OnInit {
   user:User
+  hide = true;
   changePasswordForm:FormGroup;
-  imageFile:any;
-  imageUrl:string;
   constructor(private authService:AuthService,
               private userService:UsersService,
               private formBuilder: FormBuilder,
@@ -38,7 +37,6 @@ export class ChangePasswordComponent implements OnInit {
     this.matDialog.open(ChangePasswordComponent);
   }
   buildForm(){
-    this.imageUrl = this.user.avatarUrl;
     this.changePasswordForm = this.formBuilder.group({
       id: new FormControl(this.user.id),
       oldPassword:new FormControl("",[Validators.required, Validators.minLength(2), AppValidators.notOnlyWhitespace]),
@@ -56,52 +54,10 @@ export class ChangePasswordComponent implements OnInit {
   get newPasswordConfirm(){
     return this.changePasswordForm.get("newPasswordConfirm");
   }
-  setAvatar(event:any){
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload = (e: any) =>  this.imageUrl = e.target.result;
-      this.imageFile = event.target.files[0];
 
+ updatePassword(){
 
-    } else {
-      this.imageUrl = "";
-    }
-  }
-  // updateProfile(){
-  //   if (this.updateForm.invalid) {
-  //     this.updateForm.markAllAsTouched();
-  //     return;
-  //   }
-  //   if (this.imageFile) {
-  //     const filePath = `${this.imageFile.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
-  //     const fileRef = this.storage.ref(filePath);
-  //     this.storage.upload(filePath, this.imageFile).snapshotChanges().pipe(
-  //       finalize(() => {
-  //         fileRef.getDownloadURL().subscribe((url:any) => {
-  //           this.imageUrl = url;
-  //           this.updateToBackend();
-  //         });
-  //       })).subscribe();
-  //   }
-  //   else {
-  //     this.updateToBackend();
-  //   }
-  // }
-  //
-  // updateToBackend(){
-  //   let user:User = new User();
-  //   user.id = this.updateForm.controls["id"].value;
-  //   user.fullName = this.updateForm.controls["fullName"].value;
-  //   user.phone = this.updateForm.controls["phone"].value;
-  //   user.email = this.updateForm.controls["email"].value;
-  //   user.avatarUrl = this.imageUrl;
-  //   this.userService.updateProfile(user).subscribe(data =>{
-  //     this.user = data
-  //     this.authService.loginSuccess(this.user);
-  //     this.alertService.alertUpdateSuccess();
-  //   })
-  // }
+ }
 
   showInforDialog(){
     this.matDialog.closeAll();

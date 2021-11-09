@@ -31,37 +31,39 @@ export class LoginStatusComponent implements OnInit {
         this.user=undefined;
       }
     })
-    this.authService.dialogSubject.subscribe(()=> this.closeDialog());
-    this.authService.loginRegisterSubject.subscribe(string => {
-      if(string == 'dn'){
-        this.closeDialog()
-        this.showLoginDialog()
-      }
-      else if (string == 'dk') {
-        this.closeDialog()
-        this.showRegisterDialog()
-      }
-      else if (string == 'mk') {
-        this.closeDialog()
-        this.showReSetPasswordDialog()
-      }
-    })
+    // this.authService.dialogSubject.subscribe(()=> this.closeDialog());
+    // this.authService.loginRegisterSubject.subscribe(string => {
+    //   if(string == 'dn'){
+    //     this.closeDialog()
+    //     this.showLoginDialog()
+    //   }
+    //   else if (string == 'dk') {
+    //     this.closeDialog()
+    //     this.showRegisterDialog()
+    //   }
+    //   else if (string == 'mk') {
+    //     this.closeDialog()
+    //     this.showReSetPasswordDialog()
+    //   }
+    // })
   }
   showLoginDialog(){
-    const dialogRef = this.dialog.open(LoginComponent);
+    this.dialog.closeAll();
+    this.dialog.open(LoginComponent);
   }
   showRegisterDialog(){
-    const dialogRef = this.dialog.open(RegisterComponent);
+    this.dialog.closeAll();
+    this.dialog.open(RegisterComponent);
   }
   showProfileDialog(){
     this.dialog.open(ProfileComponent);
   }
-  closeDialog(){
-    this.dialog.closeAll();
-  }
-  showReSetPasswordDialog(){
-    this.dialog.open(ResetPasswordComponent);
-  }
+  // closeDialog(){
+  //   this.dialog.closeAll();
+  // }
+  // showReSetPasswordDialog(){
+  //   this.dialog.open(ResetPasswordComponent);
+  // }
   logOut(){
     this.authService.logOut();
   }

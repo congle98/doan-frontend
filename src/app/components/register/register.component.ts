@@ -5,6 +5,9 @@ import {Router} from "@angular/router";
 import {AppValidators} from "../../validators/AppValidators";
 import {RegisterRequest} from "../../common/RegisterRequest";
 import {AlertService} from "../../services/alert.service";
+import {MatDialog} from "@angular/material/dialog";
+import {LoginComponent} from "../login/login.component";
+import {ResetPasswordComponent} from "../reset-password/reset-password.component";
 
 @Component({
   selector: 'app-register',
@@ -16,7 +19,9 @@ export class RegisterComponent implements OnInit {
   constructor(private authService:AuthService,
               private formBuilder: FormBuilder,
               private router:Router,
-              private alertService:AlertService) { }
+              private alertService:AlertService,
+              private matDialog:MatDialog
+              ) { }
 
   ngOnInit(): void {
     this.builderForm();
@@ -60,15 +65,20 @@ export class RegisterComponent implements OnInit {
     }
     this.authService.register(registerRequest).subscribe((success) => {
       this.alertService.alertSuccess("Đăng ký thành công hãy bắt đầu đăng nhập để mua sắm !")
-      this.showLoginDialog("dk");
+      this.showLoginDialog()
       this.registerForm.reset();
     },
       (error) => {
         this.alertService.alertFail(error.error.message);
     })
   }
-  showLoginDialog(string:string){
-    this.authService.changeLoginRegisterSubject(string);
+  showLoginDialog(){
+    this.matDialog.closeAll();
+    this.matDialog.open(LoginComponent);
+  }
+  showResetPasswordDialog(){
+    this.matDialog.closeAll();
+    this.matDialog.open(ResetPasswordComponent);
   }
 }
 

@@ -157,13 +157,13 @@
       <div class="card rounded-3 text-black ">
         <ul class="popup-login-tab">
           <li class="popup-login-tab-item">
-            <a (click)="showLoginDialog('dn')">Đăng nhập</a>
+            <a (click)="showLoginDialog()">Đăng nhập</a>
           </li>
           <li class="popup-login-tab-item active">
             Đăng ký
           </li>
           <li class="popup-login-tab-item" style="width: 40%">
-            <a (click)="showLoginDialog('mk')">Quên mật khẩu</a>
+            <a (click)="showResetPasswordDialog()">Quên mật khẩu</a>
           </li>
         </ul>
         <div class="row g-0">
@@ -234,7 +234,7 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-center pb-4">
                   <p class="mb-0 me-2">Bạn đã có tài khoản?</p>
-                  <button type="button" class="btn btn-outline-danger" (click)="showLoginDialog('dn')">Đăng nhập</button>
+                  <button type="button" class="btn btn-outline-danger" (click)="showLoginDialog()">Đăng nhập</button>
                 </div>
               </form>
 

@@ -40,17 +40,17 @@ export class SiderBarComponent implements OnInit {
         this.user = undefined;
       }
     })
-    this.authService.dialogSubject.subscribe(()=> this.closeDialog());
-    this.authService.loginRegisterSubject.subscribe(string => {
-      if(string == "dn"){
-        this.closeDialog()
-        this.showLoginDialog()
-      }
-      else if(string == "dk") {
-        this.closeDialog()
-        this.showRegisterDialog()
-      }
-    })
+    // this.authService.dialogSubject.subscribe(()=> this.closeDialog());
+    // this.authService.loginRegisterSubject.subscribe(string => {
+    //   if(string == "dn"){
+    //     this.closeDialog()
+    //     this.showLoginDialog()
+    //   }
+    //   else if(string == "dk") {
+    //     this.closeDialog()
+    //     this.showRegisterDialog()
+    //   }
+    // })
   }
 
   listProductCategories(){
@@ -64,19 +64,19 @@ export class SiderBarComponent implements OnInit {
     window.scrollTo(0, 650);
   }
   showLoginDialog(){
-    const dialogRef = this.dialog.open(LoginComponent);
+    this.dialog.closeAll();
+    this.dialog.open(LoginComponent);
   }
   showRegisterDialog(){
-    const dialogRef = this.dialog.open(RegisterComponent);
-  }
-  closeDialog(){
     this.dialog.closeAll();
+    this.dialog.open(RegisterComponent);
   }
   logOut(){
     this.authService.logOut();
   }
 
   showProfileDialog(){
+    this.dialog.closeAll();
     this.dialog.open(ProfileComponent);
   }
 

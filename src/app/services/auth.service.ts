@@ -12,8 +12,8 @@ export class AuthService {
   url:string = environment.baseUrl+"/auth";
   loginStatusSubject = new Subject<boolean>();
   isAdmin = new Subject<boolean>();
-  dialogSubject = new Subject<void>();
-  loginRegisterSubject = new Subject<string>();
+  // dialogSubject = new Subject<void>();
+  // loginRegisterSubject = new Subject<string>();
   constructor(private httpClient:HttpClient) { }
 
 
@@ -24,12 +24,12 @@ export class AuthService {
     }
     return this.httpClient.post(this.url+"/login",loginForm);
   }
-  changeLoginRegisterSubject(string:string){
-    this.loginRegisterSubject.next(string);
-  }
-  changeDialogSubject(){
-    this.dialogSubject.next();
-  }
+  // changeLoginRegisterSubject(string:string){
+  //   this.loginRegisterSubject.next(string);
+  // }
+  // changeDialogSubject(){
+  //   this.dialogSubject.next();
+  // }
 
   register(registerRequest:RegisterRequest){
     return this.httpClient.post(this.url+"/register",registerRequest);

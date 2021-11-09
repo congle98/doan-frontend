@@ -53,10 +53,10 @@
               Đăng nhập
             </li>
             <li class="popup-login-tab-item">
-              <a (click)="showRegisterDialog('dk')">Đăng ký</a>
+              <a (click)="showRegisterDialog()">Đăng ký</a>
             </li>
             <li class="popup-login-tab-item" style="width: 40%">
-              <a (click)="showRegisterDialog('mk')">Quên mật khẩu</a>
+              <a (click)="showResetPasswordDialog()">Quên mật khẩu</a>
             </li>
           </ul>
           <div class="row g-0">
@@ -91,7 +91,7 @@
                   </div>
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">Bạn chưa có tài khoản?</p>
-                    <button type="button" class="btn btn-outline-danger" (click)="showRegisterDialog('dk')">Đăng ký</button>
+                    <button type="button" class="btn btn-outline-danger" (click)="showRegisterDialog()">Đăng ký</button>
                   </div>
                 </form>
               </div>

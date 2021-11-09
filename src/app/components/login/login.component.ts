@@ -4,7 +4,9 @@ import {AuthService} from "../../services/auth.service";
 import {AppValidators} from "../../validators/AppValidators";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AlertService} from "../../services/alert.service";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
+import {RegisterComponent} from "../register/register.component";
+import {ResetPasswordComponent} from "../reset-password/reset-password.component";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit {
               private formBuilder: FormBuilder,
               private router: Router,
               private alertService:AlertService,
-              private route:ActivatedRoute
+              private route:ActivatedRoute,
+              private matDialog:MatDialog
               ) {
   }
 
@@ -46,7 +49,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(userName, password).subscribe((success) => {
         this.authService.loginSuccess(success);
         this.alertService.alertSuccess("Đăng nhập thành công hãy bắt đầu mua sắm !")
-        this.authService.changeDialogSubject();
+        // this.authService.changeDialogSubject();
+      this.matDialog.closeAll();
         this.loginForm.reset();
       },
       (error) => {
@@ -54,8 +58,12 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  showRegisterDialog(string:string){
-    this.authService.changeLoginRegisterSubject(string);
+  showRegisterDialog(){
+    this.matDialog.closeAll();
+    this.matDialog.open(RegisterComponent)
   }
-
+  showResetPasswordDialog(){
+    this.matDialog.closeAll();
+    this.matDialog.open(ResetPasswordComponent)
+  }
 }

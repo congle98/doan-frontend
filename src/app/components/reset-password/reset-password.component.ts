@@ -4,6 +4,9 @@ import {AuthService} from "../../services/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AlertService} from "../../services/alert.service";
 import {AppValidators} from "../../validators/AppValidators";
+import {MatDialog} from "@angular/material/dialog";
+import {RegisterComponent} from "../register/register.component";
+import {LoginComponent} from "../login/login.component";
 
 @Component({
   selector: 'app-reset-password',
@@ -17,7 +20,8 @@ export class ResetPasswordComponent implements OnInit {
               private formBuilder: FormBuilder,
               private router: Router,
               private alertService:AlertService,
-              private route:ActivatedRoute
+              private route:ActivatedRoute,
+              private matDialog:MatDialog
   ) {
   }
 
@@ -54,8 +58,12 @@ export class ResetPasswordComponent implements OnInit {
     //   }
     // );
   }
-  showRegisterDialog(string:string){
-    this.authService.changeLoginRegisterSubject(string);
+  showRegisterDialog(){
+   this.matDialog.closeAll();
+   this.matDialog.open(RegisterComponent)
   }
-
+  showLoginDialog(){
+    this.matDialog.closeAll();
+    this.matDialog.open(LoginComponent)
+  }
 }
