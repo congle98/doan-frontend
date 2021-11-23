@@ -218,5 +218,31 @@
   border-left: 10px solid #df3346 ;
   background-color:#df3346 ;
 }
+.addtocart {
+  background: #fc5959;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  border: 3px solid #fff;
+  right: 35px;
+  top:260px;
+  position: absolute;
+  transition: all .2s;
+}
+.addtocart:hover {
+  box-shadow: 3px 3px 5px #939393;
+  background: #f1453d;
+  padding: 2px;
+}
 
+
+.addtocart i{
+  color: #fff;
+  font-size: 18px;
+  line-height: 40px;
+}
 

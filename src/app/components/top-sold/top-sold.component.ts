@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Book} from "../../common/Book";
 import {BookService} from "../../services/book.service";
+import {CartItem} from "../../common/CartItem";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-top-sold',
@@ -13,7 +15,8 @@ export class TopSoldComponent implements OnInit {
   minute = 59;
   second =59;
   responsiveOptions:any;
-  constructor(private bookService:BookService) {
+  constructor(private bookService:BookService,
+              private cartService:CartService) {
     this.responsiveOptions = [
       {
         breakpoint: '1024px',
@@ -60,5 +63,8 @@ export class TopSoldComponent implements OnInit {
       this.second -=1;
     }, 1000);
   }
-
+  addToCart(book:Book){
+    const cartItem:CartItem = new CartItem(book);
+    this.cartService.addToCart(cartItem);
+  }
 }

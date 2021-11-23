@@ -1,11 +1,14 @@
 <div class="container">
-  <div class="card mt-5">
+  <div class="card">
+    <div class="row justify-content-start">
+      <button class="btn btn-danger mb-2" style="width: 200px" routerLink="/books">Quay lại trang chủ</button>
+    </div>
     <p-table class="some-custom-class-name" [value]="orders" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
              [rowHover]="true" dataKey="id"
              currentPageReportTemplate="Từ {first} đến {last} trong {totalRecords} đơn hàng ">
       <ng-template pTemplate="caption" class="table-background">
         <div class="p-d-flex p-ai-center p-jc-between ">
-          <h5 class="p-m-0">Lịch sử đơn hàng</h5>
+          <h2 class="p-m-0">Lịch sử đơn hàng</h2>
         </div>
       </ng-template>
       <ng-template pTemplate="header">
@@ -21,7 +24,7 @@
       <ng-template pTemplate="body" let-tempOrderHistory>
         <tr>
           <td>
-            {{ tempOrderHistory.totalPrice | currency: 'VND' }}
+            {{ tempOrderHistory.totalPrice | VndCurrency }}
           </td>
           <td>
             {{ tempOrderHistory.totalQuantity }}

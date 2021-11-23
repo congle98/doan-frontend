@@ -12,7 +12,7 @@
     <tr>
       <td>{{order.book.name}}</td>
       <td><img src="{{order.imageUrl}}" [alt]="order.imageUrl"  class="product-image"/></td>
-      <td>{{order.unitPrice}}</td>
+      <td>{{order.unitPrice|VndCurrency}}</td>
       <td><span>{{order.quantity}}</span></td>
     </tr>
   </ng-template>

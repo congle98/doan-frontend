@@ -65,6 +65,7 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import {PasswordModule} from "primeng/password";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import { BookDetailAdvertisementComponent } from './components/book-detail-advertisement/book-detail-advertisement.component';
 
 
 
@@ -100,6 +101,7 @@ import {MatButtonModule} from "@angular/material/button";
     ProfileComponent,
     ResetPasswordComponent,
     ChangePasswordComponent,
+    BookDetailAdvertisementComponent,
 
   ],
   imports: [

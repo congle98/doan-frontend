@@ -45,7 +45,7 @@
         <div class="ma-box-content" style="height: 420px">
           <div class="products">
             <div class="product images-container" title="{{book.name}}">
-              <a href="">
+              <a href="/book-detail/{{book.id}}">
                 <div class="product-image">
                   <div class="flashsale-image-container">
                     <img src="{{book.imageUrl}}" class="flashsale-item-image" alt="">
@@ -55,11 +55,10 @@
                   </div>
                 </div>
               </a>
-
             </div>
           </div>
           <h2 class="product-name-no-ellipsis" style="height: 80px">
-            <a href="" style="color: #444444;">{{book.name}}</a>
+            <span  style="color: #444444;">{{book.name}}</span>
           </h2>
           <div class="flashsale-price">
             <div class="flashsale-price-special">
@@ -69,11 +68,13 @@
               {{book.price| VndCurrency}}
             </div>
             <div class="episode-label">
-
+              <button  (click)="addToCart(book)"  class="addtocart">
+                <i class="fa fa-shopping-cart"></i>
+              </button>
             </div>
           </div>
           <div class="progress">
-            <span class="progress-value">Đã bán {{book.sold}}</span>
+            <div class="progress-value">Đã bán {{book.sold}}</div>
             <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"></div>
           </div>
         </div>

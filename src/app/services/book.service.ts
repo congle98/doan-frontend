@@ -47,6 +47,15 @@ export class BookService {
   //   const searchUrl = this.url+"/products/"
   //   return this.httpClient.get<Book>(searchUrl+theProductId)
   // }
+  getById(id:number):Observable<Book>{
+   return  this.httpClient.get<Book>(this.url+"/"+id);
+  }
+  findAllAuthor(id:number):Observable<Book[]>{
+    return this.httpClient.get<Book[]>(this.url+"/author/"+id);
+  }
+  finAllCategory(id:number):Observable<Book[]>{
+    return  this.httpClient.get<Book[]>(this.url+"/category/"+id);
+  }
 }
 export interface GetResponseBooks{
   content:Book[],

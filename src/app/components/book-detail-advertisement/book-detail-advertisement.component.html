@@ -1,0 +1,126 @@
+<div class="top-sold">
+  <p-carousel [value]="booksOfCategory"  [numVisible]="5" [numScroll]="1" [circular]="true"
+              [responsiveOptions]="responsiveOptions"
+              >
+
+    <ng-template pTemplate="header" >
+      <div class="flashsale-header">
+        <span>
+        <div class="split">Cùng thể loại: {{book.bookCategory.name}}</div>
+      </span>
+      </div>
+    </ng-template>
+    <ng-template let-book pTemplate="item">
+
+      <div style="position: relative" class="card-hover">
+        <div class="new-label-pro-sale" *ngIf="book.price!=0&&(book.salePrice/book.price)!=0">
+          <span class="new-p-sale-label">{{((book.salePrice/book.price)*100).toFixed(1)+'%'}}</span>
+        </div>
+        <div class="ma-box-content" style="height: 250px">
+          <div class="products">
+            <div class="product images-container" title="{{book.name}}">
+              <a href="">
+                <div class="product-image">
+                  <div class="flashsale-image-container">
+                    <img src="{{book.imageUrl}}" class="flashsale-item-image" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+          <h2 class="product-name-no-ellipsis" style="height: 40px">
+            <a href="" style="color: #444444;">{{book.name}}</a>
+          </h2>
+          <div class="flashsale-price">
+            <div class="flashsale-price-special">
+              {{(book.price-book.salePrice) | VndCurrency}}
+            </div>
+            <div class="flashsale-price-old">
+              {{book.price| VndCurrency}}
+            </div>
+            <div class="episode-label">
+              <button  (click)="addToCart(book)"  class="addtocart">
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-value">Đã bán {{book.sold}}</div>
+            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"></div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+<div style="margin: 100px 0px"></div>
+<div class="top-sold">
+  <p-carousel [value]="booksOfAuthor"  [numVisible]="5" [numScroll]="1" [circular]="true"
+              [responsiveOptions]="responsiveOptions"
+              >
+    <ng-template pTemplate="header" >
+      <div class="flashsale-header">
+        <span>
+        <div class="split">Cùng tác giả: {{book.author.name}}</div>
+      </span>
+      </div>
+    </ng-template>
+    <ng-template let-book pTemplate="item">
+      <!--    <div class="product-item">-->
+      <!--      <div class="product-item-content">-->
+      <!--        <div class="p-mb-3">-->
+      <!--          <img src="{{book.imageUrl}}" [alt]="book.name" class="product-image" />-->
+      <!--        </div>-->
+      <!--        <div>-->
+      <!--          <h4 class="p-mb-1">{{book.name}}</h4>-->
+      <!--          <h6 class="p-mt-0 p-mb-3">${{book.price}}</h6>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <!--    </div>-->
+      <div style="position: relative" class="card-hover">
+        <div class="new-label-pro-sale" *ngIf="book.price!=0&&(book.salePrice/book.price)!=0">
+          <span class="new-p-sale-label">{{((book.salePrice/book.price)*100).toFixed(1)+'%'}}</span>
+        </div>
+        <div class="ma-box-content" style="height: 250px">
+          <div class="products">
+            <div class="product images-container" title="{{book.name}}">
+              <a href="">
+                <div class="product-image">
+                  <div class="flashsale-image-container">
+                    <img src="{{book.imageUrl}}" class="flashsale-item-image" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+          <h2 class="product-name-no-ellipsis" style="height: 40px">
+            <a href="" style="color: #444444;">{{book.name}}</a>
+          </h2>
+          <div class="flashsale-price">
+            <div class="flashsale-price-special">
+              {{(book.price-book.salePrice) | VndCurrency}}
+            </div>
+            <div class="flashsale-price-old">
+              {{book.price| VndCurrency}}
+            </div>
+            <div class="episode-label">
+              <button  (click)="addToCart(book)"  class="addtocart">
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-value">Đã bán {{book.sold}}</div>
+            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"></div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>
+
+
+
+

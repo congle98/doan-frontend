@@ -3,6 +3,7 @@
   bottom: 0;
   border-top: 2px solid #232324;
   background-color: #fefefe;
+  z-index: 3;
 }
 .my-footer a {
   color: black ;

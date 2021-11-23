@@ -32,6 +32,15 @@ export class CartStatusComponent implements OnInit {
   onRowSelect(event:any) {
     this.messageService.add({severity: 'info', summary: 'Product Selected', detail: event.data.name});
   }
+  incrementQuantity(cartItem:CartItem){
+    this.cartService.addToCart(cartItem)
+  }
+  decrementQuantity(cartItem:CartItem){
+    this.cartService.decrementQuantity(cartItem);
+  }
+  remove(cartItem:CartItem){
+    this.cartService.remove(cartItem);
+  }
 
 
 }

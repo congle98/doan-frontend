@@ -1,20 +1,37 @@
 <div class="cart-area d-flex align-items-center">
-    <div class="total text-center">
-      <button class="text-white" (click)="op.toggle($event)">{{totalPrice|VndCurrency}} <span class="text-dark"> {{totalQuantity}}</span></button>
+    <div class="total text-start">
+      <button class="text-white" (click)="op.toggle($event)">{{totalPrice|VndCurrency}}<span class="text-dark"> {{totalQuantity}}</span></button>
     </div>
     <div>
       <a routerLink="/cart-details"><i class="fa fa-shopping-cart text-white my-cart-click" aria-hidden="true"></i></a>
     </div>
 </div>
-<p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '350px'}">
+<p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '420px'}">
   <ng-template pTemplate>
-    <p-table [value]="cartItems" selectionMode="single" [(selection)]="selectedItem" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+    <p-table [value]="cartItems" [(selection)]="selectedItem" [paginator]="true" [rows]="5" responsiveLayout="scroll">
       <ng-template pTemplate="body" let-rowData let-cartItem>
         <tr [pSelectableRow]="rowData">
           <td>{{cartItem.name}}</td>
-          <td><img src="{{cartItem.imageUrl}}" [alt]="cartItem.imageUrl" class="product-image" /></td>
-          <td>{{cartItem.unitPrice}}</td>
-          <td> x{{cartItem.quantity}}</td>
+          <td class="p-0"><img src="{{cartItem.imageUrl}}" [alt]="cartItem.imageUrl" class="product-image p-0" />
+          </td>
+          <td class="fw-bold">{{cartItem.unitPrice|VndCurrency}}</td>
+          <td><div class="d-flex mt-2 align-items-center" style="border: 2px solid #f0f0f0 ; border-radius: 3px">
+            <button (click)="incrementQuantity(cartItem)" class="btn text-secondary btn-sm">
+              <i class="fas fa-plus"></i>
+            </button>
+            <div class="mx-2 fw-bold text-danger text-center" style="font-size: 1.3rem; width: 15px">
+              {{cartItem.quantity}}
+            </div>
+            <button (click)="decrementQuantity(cartItem)" class="btn text-secondary btn-sm">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div></td>
+          <td class="p-0">
+            <div class="text-center p-0"  style="vertical-align: middle;width: 100%">
+              <button class="btn p-0" style="width: 100%" (click)="remove(cartItem)">
+                <img src="./assets/img/rmicon.png" class="p-0" style="width: 50px" alt=""></button>
+            </div>
+          </td>
         </tr>
       </ng-template>
     </p-table>

@@ -7,6 +7,7 @@ import {AppValidators} from "../../validators/AppValidators";
 import {MatDialog} from "@angular/material/dialog";
 import {RegisterComponent} from "../register/register.component";
 import {LoginComponent} from "../login/login.component";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-reset-password',
@@ -21,6 +22,7 @@ export class ResetPasswordComponent implements OnInit {
               private router: Router,
               private alertService:AlertService,
               private route:ActivatedRoute,
+              private userService:UsersService,
               private matDialog:MatDialog
   ) {
   }
@@ -45,18 +47,12 @@ export class ResetPasswordComponent implements OnInit {
       this.resetPasswordForm.markAllAsTouched();
       return;
     }
-    let userName = this.resetPasswordForm.controls["username"].value;
-    let email = this.resetPasswordForm.controls["email"].value;
-    // this.authService.login(userName, email).subscribe((success) => {
-    //     this.authService.loginSuccess(success);
-    //     this.alertService.alertSuccess("Đăng nhập thành công hãy bắt đầu mua sắm !")
-    //     this.authService.changeDialogSubject();
-    //     this.loginForm.reset();
-    //   },
-    //   (error) => {
-    //     this.alertService.alertFail(error.error.message);
-    //   }
-    // );
+    const request = this.resetPasswordForm.value;
+      this.userService.resetPassword(request).subscribe(()=>{
+        this.alertService.alertSuccess("Mật khẩu mới đã được thiết lập lại, vui lòng kiểm tra email!");
+      },error => {
+        this.alertService.alertFail(error.error.message);
+      })
   }
   showRegisterDialog(){
    this.matDialog.closeAll();

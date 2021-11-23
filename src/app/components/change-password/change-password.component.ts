@@ -10,6 +10,7 @@ import {UsersService} from "../../services/users.service";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {AppValidators} from "../../validators/AppValidators";
 import {finalize} from "rxjs/operators";
+import {ChangePasswordRequest} from "../../common/ChangePasswordRequest";
 
 @Component({
   selector: 'app-change-password',
@@ -56,7 +57,17 @@ export class ChangePasswordComponent implements OnInit {
   }
 
  updatePassword(){
-
+    const rq = new ChangePasswordRequest();
+    rq.id = this.changePasswordForm.controls["id"].value;
+    rq.oldPassword = this.changePasswordForm.controls["oldPassword"].value;
+    rq.newPassword = this.changePasswordForm.controls["newPassword"].value;
+    this.userService.changePassword(rq).subscribe(data =>{
+      this.authService.loginSuccess(data);
+      this.alertService.alertUpdateSuccess();
+      this.changePasswordForm.reset()
+    },error => {
+      this.alertService.alertFail(error.error.message)
+    })
  }
 
   showInforDialog(){

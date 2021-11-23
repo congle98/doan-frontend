@@ -20,11 +20,11 @@
               <div class="items">
                 <div class="flex-column no-gutters align-items-center">
                   <div style="font-weight: 700">Số lượng </div>
-                  <div class="d-flex mt-2 align-items-center" style="border: 2px solid #f0f0f0 ; width: 87px; border-radius: 3px">
+                  <div class="d-flex mt-2 align-items-center" style="border: 2px solid #f0f0f0 ; width: 100px; border-radius: 3px">
                     <button (click)="incrementQuantity(cartItem)" class="btn text-secondary btn-sm">
                       <i class="fas fa-plus"></i>
                     </button>
-                    <div class="mx-2 fw-bold text-danger" style="font-size: 1.3rem">
+                    <div class="mx-2 fw-bold text-danger text-center" style="font-size: 1.3rem; width: 25px">
                       {{cartItem.quantity}}
                     </div>
                     <button (click)="decrementQuantity(cartItem)" class="btn text-secondary btn-sm">
