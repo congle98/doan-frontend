@@ -217,6 +217,7 @@
   /*box-shadow: 0 0 0 8px rgba(128,15,192,0.2), 0 0 0 0 rgba(0,0,0,0.19);*/
   border-left: 10px solid #df3346 ;
   background-color:#df3346 ;
+  box-shadow: 5px 7px 25px #999;
 }
 .addtocart {
   background: #fc5959;
