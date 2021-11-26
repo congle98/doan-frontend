@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {CartService} from "../../services/cart.service";
 import {BookService, GetResponseBooks} from "../../services/book.service";
 import {CartItem} from "../../common/CartItem";
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-book-list',
@@ -21,6 +22,7 @@ export class BookListComponent implements OnInit {
   theTotalElements: number = 0;
   previousKeyWord: string|null;
   constructor(private bookService:BookService,private route:ActivatedRoute,
+              private alertService:AlertService,
               private cartService:CartService) { }
 
   ngOnInit(): void {
@@ -86,6 +88,7 @@ export class BookListComponent implements OnInit {
   addToCart(book:Book){
     const cartItem:CartItem = new CartItem(book);
     this.cartService.addToCart(cartItem);
+    this.alertService.alertSuccess("Thêm mới thành công")
   }
 
 }

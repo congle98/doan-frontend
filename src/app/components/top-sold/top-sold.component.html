@@ -1,5 +1,5 @@
 <div class="top-sold">
-  <p-carousel [value]="Books"  [numVisible]="3" [numScroll]="1" [circular]="true"
+  <p-carousel [value]="Books"  [numVisible]="4" [numScroll]="1" [circular]="true"
               [responsiveOptions]="responsiveOptions">
     <ng-template pTemplate="header" >
       <div class="flashsale-header">
@@ -57,7 +57,7 @@
               </a>
             </div>
           </div>
-          <h2 class="product-name-no-ellipsis" style="height: 80px">
+          <h2 class="product-name-no-ellipsis" >
             <span  style="color: #444444;">{{book.name}}</span>
           </h2>
           <div class="flashsale-price">

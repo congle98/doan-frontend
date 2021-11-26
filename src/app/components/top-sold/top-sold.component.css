@@ -70,6 +70,7 @@
   padding-right: 0.5em;
   margin-top: 0.5em;
   display: block;
+  height: 60px;
 }
 .flashsale-price {
   padding-left: 10px;
@@ -86,6 +87,7 @@
   color: #888888;
   text-decoration: line-through;
   font-size: 1.1em;
+  margin: 7px 0;
 }
 .episode-label {
   position: absolute;
