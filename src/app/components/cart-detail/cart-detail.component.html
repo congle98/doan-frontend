@@ -10,8 +10,8 @@
               <button class="btn btn-sm" (click)="remove(cartItem)">
                 <img src="./assets/img/rmicon.png" alt=""></button>
             </td>
-            <td><img class="img-responsive" src="{{cartItem.imageUrl}}"
-                     width="150px"></td>
+            <td><img class="img-responsive" style="width: 150px; height: 180px" src="{{cartItem.imageUrl}}"
+                    ></td>
             <td>
               <p>{{cartItem.name}}</p>
               <p class="fw-bold">{{cartItem.unitPrice|VndCurrency}}</p>
