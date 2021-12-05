@@ -102,6 +102,8 @@ export class ProfileComponent implements OnInit {
       this.user = data
       this.authService.loginSuccess(this.user);
       this.alertService.alertUpdateSuccess();
+    },error => {
+      this.alertService.alertFail(error.error.message)
     })
   }
 

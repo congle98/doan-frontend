@@ -22,7 +22,7 @@
               <a href="">
                 <div class="product-image">
                   <div class="flashsale-image-container">
-                    <img src="{{book.imageUrl}}" class="flashsale-item-image" alt="">
+                    <img src="{{book.imageUrl}}" class="flashsale-item-image " alt="">
                   </div>
                 </div>
               </a>
@@ -34,7 +34,7 @@
           </h2>
           <div class="flashsale-price">
             <div class="flashsale-price-special">
-              {{(book.price-book.salePrice) | VndCurrency}}
+              {{(book.unitPrice) | VndCurrency}}
             </div>
             <div class="flashsale-price-old">
               {{book.price| VndCurrency}}
@@ -100,7 +100,7 @@
           </h2>
           <div class="flashsale-price">
             <div class="flashsale-price-special">
-              {{(book.price-book.salePrice) | VndCurrency}}
+              {{(book.unitPrice) | VndCurrency}}
             </div>
             <div class="flashsale-price-old">
               {{book.price| VndCurrency}}

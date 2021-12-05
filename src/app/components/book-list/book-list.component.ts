@@ -20,6 +20,8 @@ export class BookListComponent implements OnInit {
   thePageSize:number = 12;
   theTotalElements: number = 0;
   previousKeyWord: string|null;
+  sort = "nameasc";
+  dr=false;
   constructor(private bookService:BookService,private route:ActivatedRoute,
               private cartService:CartService) { }
 
@@ -28,6 +30,11 @@ export class BookListComponent implements OnInit {
     this.route.paramMap.subscribe(()=>{
       this.getProductList()
     })
+  }
+
+  searchSort(value:string){
+    this.sort = value;
+    this.getProductList()
   }
 
   getProductList(){
@@ -46,7 +53,7 @@ export class BookListComponent implements OnInit {
     }
     this.previousKeyWord = theKeyword;
     this.bookService.searchBooks(this.thePageNumber-1,
-      this.thePageSize,theKeyword?theKeyword:"").subscribe(data => this.processResult(data))
+      this.thePageSize,theKeyword?theKeyword:"",this.sort).subscribe(data => this.processResult(data))
   }
 
   handleListProducts(){
@@ -67,7 +74,7 @@ export class BookListComponent implements OnInit {
     this.bookService.getBookListPaginate(
       this.thePageNumber-1,
       this.thePageSize,
-      this.currentCategoryId).subscribe(data => this.processResult(data));
+      this.currentCategoryId,this.sort).subscribe(data => this.processResult(data));
   }
   processResult(data:GetResponseBooks){
     this.books = data.content;

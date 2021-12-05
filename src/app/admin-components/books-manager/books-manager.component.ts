@@ -51,9 +51,9 @@ export class BooksManagerComponent implements OnInit {
       description: new FormControl(
         "", [Validators.required, Validators.minLength(2), AppValidators.notOnlyWhitespace]),
       price: new FormControl(
-        "", [Validators.required]),
+        0, [Validators.required]),
       salePrice: new FormControl(
-        "", [Validators.required]),
+        0, [Validators.required]),
       author: new FormControl(
         "", [Validators.required, Validators.minLength(2)]),
       bookCategory: new FormControl(
@@ -99,6 +99,7 @@ export class BooksManagerComponent implements OnInit {
     book.author = this.bookForm.controls["author"].value;
     book.bookCategory = this.bookForm.controls["bookCategory"].value;
     book.imageUrl = this.imageUrl;
+    book.unitPrice = book.price - book.salePrice;
     if(this.isEdit){
       book.id = this.bookForm.controls["id"].value;
       book.active = this.bookForm.controls["active"].value;
@@ -121,7 +122,8 @@ export class BooksManagerComponent implements OnInit {
       else {
         this.books.push(data);
       }
-    })
+    }, error => {this.alertService.alertFail(error.error.message)}
+    )
   }
   editBook(book: Book) {
     let name = book.name;

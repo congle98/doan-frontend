@@ -8,6 +8,7 @@ import {MessageService} from "primeng/api";
 import {OrderItem} from "../../common/OrderItem";
 import {ListOrderItemComponent} from "../../common/dialog/list-order-item/list-order-item.component";
 import {Message} from 'primeng//api';
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-order-history',
@@ -22,6 +23,7 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
               private authService:AuthService,
               private router:Router,
               public dialogService: DialogService,
+              private alertService:AlertService,
               public messageService: MessageService) { }
 
   ngOnInit(): void {
@@ -73,7 +75,7 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
         console.log(success);
         return item;
       })
-    })
+    },error => {this.alertService.alertFail(error.error.message)})
   }
 
 }

@@ -7,6 +7,7 @@ export class Book {
   description: string;
   price: number;
   salePrice:number;
+  unitPrice:number;
   active:boolean;
   dateCreated: Date;
   lastUpdated: Date;

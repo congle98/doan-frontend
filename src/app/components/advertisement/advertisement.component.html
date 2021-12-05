@@ -6,14 +6,14 @@
         <div class="image-container ">
           <div class="first">
             <div class="d-flex justify-content-between align-items-center"> <span *ngIf="book.price!=0&&(book.salePrice/book.price)!=0" class="discount">SALE {{((book.salePrice/book.price)*100).toFixed(1)+'%'}}</span></div>
-          </div> <img src="{{book.imageUrl}}" style="height: 150px; width: 100%" class="img-fluid rounded thumbnail-image">
+          </div> <img src="{{book.imageUrl}}"  class="img-fluid img-adverti rounded thumbnail-image">
         </div>
       </a>
       <div class="p-2 pt-4">
         <div style="line-height: 15px">
           <div style="height: 40px"><p class="dress-name text-gray-800">{{book.name}}</p></div>
           <div class="d-flex flex-column">
-            <div><span class="new-price">{{(book.price-book.salePrice) | VndCurrency}}</span> </div>
+            <div><span class="new-price">{{(book.unitPrice) | VndCurrency}}</span> </div>
             <div><small class="old-price text-right">{{book.price| VndCurrency}}</small> </div>
           </div>
         </div>

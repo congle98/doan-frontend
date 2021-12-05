@@ -13,13 +13,13 @@ export class BookService {
   url:string = environment.baseUrl+"/books";
   constructor(private httpClient:HttpClient) {
   }
-  getBookListPaginate(thePage:number,thePageSize:number,id:number):Observable<GetResponseBooks>{
+  getBookListPaginate(thePage:number,thePageSize:number,id:number,sort:string):Observable<GetResponseBooks>{
     const searchUrl = this.url+"/findAllActive?id=";
-    return this.httpClient.get<GetResponseBooks>(`${searchUrl+id}&page=${thePage}&size=${thePageSize}`);
+    return this.httpClient.get<GetResponseBooks>(`${searchUrl+id}&page=${thePage}&size=${thePageSize}&sort=${sort}`);
   }
-  searchBooks(thePage:number,thePageSize:number,keyWord:string=""):Observable<GetResponseBooks>{
+  searchBooks(thePage:number,thePageSize:number,keyWord:string="",sort:string):Observable<GetResponseBooks>{
     const searchUrl = this.url+"/search/findByContextContaining?context="
-    return this.httpClient.get<GetResponseBooks>(`${searchUrl+keyWord}&page=${thePage}&size=${thePageSize}`);
+    return this.httpClient.get<GetResponseBooks>(`${searchUrl+keyWord}&page=${thePage}&size=${thePageSize}&sort=${sort}`);
   }
   getAllByAdmin():Observable<Book[]>{
     return this.httpClient.get<Book[]>(this.url);
