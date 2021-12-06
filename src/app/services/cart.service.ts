@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {CartItem} from "../common/CartItem";
 import {BehaviorSubject, Subject} from "rxjs";
+import {AlertService} from "./alert.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CartService {
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity:Subject<number> = new BehaviorSubject<number>(0);
   storage:Storage = localStorage;
-  constructor() {
+  constructor(private alertService:AlertService) {
     let data = JSON.parse(<any>this.storage.getItem('cartItems'))
     if(data!=null){
       this.cartItems = data;
