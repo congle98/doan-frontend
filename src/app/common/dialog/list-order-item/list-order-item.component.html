@@ -10,8 +10,8 @@
   </ng-template>
   <ng-template pTemplate="body" let-order>
     <tr>
-      <td>{{order.book.name}}</td>
-      <td><img src="{{order.imageUrl}}" [alt]="order.imageUrl"  class="product-image"/></td>
+      <td><a routerLink="/book-detail/{{order.book.id}}">{{order.book.name}}</a></td>
+      <td><a routerLink="/book-detail/{{order.book.id}}"><img src="{{order.imageUrl}}" [alt]="order.imageUrl"  class="product-image"/></a></td>
       <td>{{order.unitPrice|VndCurrency}}</td>
       <td><span>{{order.quantity}}</span></td>
     </tr>

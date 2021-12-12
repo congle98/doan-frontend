@@ -12,14 +12,14 @@
     </ng-template>
     <ng-template let-book pTemplate="item">
 
-      <div style="position: relative" class="card-hover">
+      <div style="position: relative; max-width: 190px" class="card-hover">
         <div class="new-label-pro-sale" *ngIf="book.price!=0&&(book.salePrice/book.price)!=0">
           <span class="new-p-sale-label">{{((book.salePrice/book.price)*100).toFixed(1)+'%'}}</span>
         </div>
         <div class="ma-box-content" style="height: 250px">
           <div class="products">
-            <div class="product images-container" title="{{book.name}}">
-              <a href="">
+            <div class="product images-container" title="{{book.name.length<30?book.name:book.name.slice(0,29)+'..'}}">
+              <a routerLink="/book-detail/{{book.id}}">
                 <div class="product-image">
                   <div class="flashsale-image-container">
                     <img src="{{book.imageUrl}}" class="flashsale-item-image " alt="">
@@ -30,7 +30,7 @@
             </div>
           </div>
           <h2 class="product-name-no-ellipsis" >
-            <a href="" style="color: #444444;">{{book.name}}</a>
+            <a href="" style="color: #444444;">{{book.name.length<30?book.name:book.name.slice(0,29)+'..'}}</a>
           </h2>
           <div class="flashsale-price">
             <div class="flashsale-price-special">
@@ -78,14 +78,14 @@
       <!--        </div>-->
       <!--      </div>-->
       <!--    </div>-->
-      <div style="position: relative" class="card-hover">
+      <div style="position: relative; max-width: 190px" class="card-hover">
         <div class="new-label-pro-sale" *ngIf="book.price!=0&&(book.salePrice/book.price)!=0">
           <span class="new-p-sale-label">{{((book.salePrice/book.price)*100).toFixed(1)+'%'}}</span>
         </div>
         <div class="ma-box-content" style="height: 250px">
           <div class="products">
-            <div class="product images-container" title="{{book.name}}">
-              <a href="">
+            <div class="product images-container" title="{{book.name.length<30?book.name:book.name.slice(0,29)+'..'}}">
+              <a routerLink="/book-detail/{{book.id}}">
                 <div class="product-image">
                   <div class="flashsale-image-container">
                     <img src="{{book.imageUrl}}" class="flashsale-item-image" alt="">
@@ -96,7 +96,7 @@
             </div>
           </div>
           <h2 class="product-name-no-ellipsis">
-            <a href="" style="color: #444444;">{{book.name}}</a>
+            <a href="" style="color: #444444;">{{book.name.length<30?book.name:book.name.slice(0,29)+'..'}}</a>
           </h2>
           <div class="flashsale-price">
             <div class="flashsale-price-special">

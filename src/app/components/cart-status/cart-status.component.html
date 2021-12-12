@@ -11,8 +11,8 @@
     <p-table [value]="cartItems" [(selection)]="selectedItem" [paginator]="true" [rows]="5" responsiveLayout="scroll">
       <ng-template pTemplate="body" let-rowData let-cartItem>
         <tr [pSelectableRow]="rowData">
-          <td>{{cartItem.name}}</td>
-          <td class="p-0"><img src="{{cartItem.imageUrl}}" [alt]="cartItem.imageUrl" class="product-image p-0" />
+          <td><a routerLink="/book-detail/{{cartItem.id}}">{{cartItem.name}}</a></td>
+          <td class="p-0"><a routerLink="/book-detail/{{cartItem.id}}"><img src="{{cartItem.imageUrl}}" [alt]="cartItem.imageUrl" class="product-image p-0" /></a>
           </td>
           <td class="fw-bold">{{cartItem.unitPrice|VndCurrency}}</td>
           <td><div class="d-flex mt-2 align-items-center" style="border: 2px solid #f0f0f0 ; border-radius: 3px">

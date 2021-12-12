@@ -72,9 +72,10 @@ export class OrderHistoryComponent implements OnInit, OnDestroy {
         if(item.id === order.id){
           item = success
         }
-        console.log(success);
+
         return item;
       })
+      this.alertService.alertSuccess("Cập nhật thành công")
     },error => {this.alertService.alertFail(error.error.message)})
   }
 

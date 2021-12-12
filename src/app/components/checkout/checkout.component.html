@@ -126,7 +126,7 @@
                       </div>
                     </div>
                     <div class="form-outline mb-4 form-field-height">
-                      <label class="form-label">Số điện thoại người nhận<span class="text-danger">*</span></label>
+                      <label class="form-label">Số điện thoại người nhận<span class="text-danger"> *</span></label>
                       <input type="text" formControlName="phone" class="form-control form-control-lg" placeholder="Mời nhập số điện thoại">
                       <div *ngIf="phone">
                         <div *ngIf="phone.invalid && (phone.dirty||phone.touched)">
@@ -154,7 +154,7 @@
                       </div>
                     </div>
                     <div class="form-outline mb-4 form-field-height">
-                      <label class="form-label">Thành phố<span class="text-danger">*</span></label><br>
+                      <label class="form-label">Thành phố<span class="text-danger"> *</span></label><br>
                       <p-dropdown [options]="cities" formControlName="city" placeholder="Chọn thành phố" optionLabel="name" [showClear]="city?.valid?true:false"></p-dropdown>
                       <div *ngIf="city">
                         <div *ngIf="city.invalid && (city.dirty||city.touched)">
@@ -165,7 +165,7 @@
                       </div>
                     </div>
                     <div class="form-outline mb-4 form-field-height">
-                      <label class="form-label">Địa chỉ chi tiết<span class="text-danger">*</span></label>
+                      <label class="form-label">Địa chỉ chi tiết<span class="text-danger"> *</span></label>
                       <input formControlName="addressDetail"  class="form-control form-control-lg" type="text" placeholder="Địa chỉ chi tiết">
                       <div *ngIf="addressDetail">
                         <div *ngIf="addressDetail.invalid && (addressDetail.dirty||addressDetail.touched)">
