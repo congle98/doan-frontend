@@ -48,13 +48,12 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.controls["password"].value;
     this.authService.login(userName, password).subscribe((success) => {
         this.authService.loginSuccess(success);
-        this.alertService.alertSuccess("Đăng nhập thành công hãy bắt đầu mua sắm !")
-        // this.authService.changeDialogSubject();
+        this.alertService.alertSuccessSwal("Đăng nhập thành công hãy bắt đầu mua sắm !")
       this.matDialog.closeAll();
         this.loginForm.reset();
       },
       (error) => {
-        this.alertService.alertFail(error.error.message);
+        this.alertService.alertFailSwal(error.error.message);
       }
     );
   }

@@ -64,12 +64,12 @@ export class RegisterComponent implements OnInit {
       phone:this.registerForm.controls["phone"].value
     }
     this.authService.register(registerRequest).subscribe((success) => {
-      this.alertService.alertSuccess("Đăng ký thành công hãy bắt đầu đăng nhập để mua sắm !")
+      this.alertService.alertSuccessSwal("Đăng ký thành công hãy bắt đầu đăng nhập để mua sắm !")
       this.showLoginDialog()
       this.registerForm.reset();
     },
       (error) => {
-        this.alertService.alertFail(error.error.message);
+        this.alertService.alertFailSwal(error.error.message);
     })
   }
   showLoginDialog(){

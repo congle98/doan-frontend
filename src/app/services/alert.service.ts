@@ -21,9 +21,20 @@ export class AlertService {
     })
   }
   alertFail(data:string){
-    // return Swal.fire('Thất bại', data, 'error')
     this.messageService.add({
       severity:'error', summary:"Thất bại",detail:data
     })
+
+  }
+  alertSuccessSwal(data:string){
+    return Swal.fire('Thành công', data, 'success');
+
+  }
+  alertUpdateSuccessSwal(){
+    return Swal.fire('Thành công', 'Cập nhập thành công', 'success')
+
+  }
+  alertFailSwal(data:string){
+    return Swal.fire('Thất bại', data, 'error')
   }
 }

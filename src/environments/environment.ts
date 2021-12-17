@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:8080",
+  // baseUrl: "http://localhost:8080",
+  baseUrl: "https://conglestore.herokuapp.com",
   firebaseConfig:{
     apiKey: "AIzaSyDGFUzjdEupKQizUZluVqF5NZxMftGQn0A",
     authDomain: "doan-shopping.firebaseapp.com",
