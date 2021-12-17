@@ -40,7 +40,7 @@ export class ListOrderComponent implements OnInit {
         return item
       })
       this.alertService.alertUpdateSuccess();
-    })
+    },error => this.alertService.alertFail(error.error.message))
   }
   getAllOrders(){
     this.orderService.getAllOrders(0).subscribe(data => this.orders = data);

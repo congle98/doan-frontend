@@ -68,6 +68,10 @@ export class AuthorManagerComponent implements OnInit {
   }
 
   saveAuthorToBackend() {
+    if (this.authorForm.invalid) {
+      this.authorForm.markAllAsTouched();
+      return;
+    }
     let author = new Author();
     author.name = this.authorForm.controls["name"].value;
     author.introduce = this.authorForm.controls["introduce"].value;

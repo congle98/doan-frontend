@@ -91,6 +91,10 @@ export class BooksManagerComponent implements OnInit {
     this.bookForm.reset();
   }
   saveBookToBackend(){
+    if (this.bookForm.invalid) {
+      this.bookForm.markAllAsTouched();
+      return;
+    }
     let book:Book = new Book();
     let subscribe;
     book.name = this.bookForm.controls["name"].value;
