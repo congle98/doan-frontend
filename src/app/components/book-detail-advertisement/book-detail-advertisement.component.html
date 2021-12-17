@@ -19,7 +19,7 @@
         <div class="ma-box-content" style="height: 250px">
           <div class="products">
             <div class="product images-container" title="{{book.name.length<30?book.name:book.name.slice(0,29)+'..'}}">
-              <a routerLink="/book-detail/{{book.id}}">
+              <a  (click)="navigateBookDetail(book.id)">
                 <div class="product-image">
                   <div class="flashsale-image-container">
                     <img src="{{book.imageUrl}}" class="flashsale-item-image " alt="">
@@ -85,7 +85,7 @@
         <div class="ma-box-content" style="height: 250px">
           <div class="products">
             <div class="product images-container" title="{{book.name.length<30?book.name:book.name.slice(0,29)+'..'}}">
-              <a routerLink="/book-detail/{{book.id}}">
+              <a (click)="navigateBookDetail(book.id)">
                 <div class="product-image">
                   <div class="flashsale-image-container">
                     <img src="{{book.imageUrl}}" class="flashsale-item-image" alt="">
