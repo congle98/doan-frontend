@@ -3,6 +3,7 @@ import {Book} from "../../common/Book";
 import {BookService} from "../../services/book.service";
 import {CartItem} from "../../common/CartItem";
 import {CartService} from "../../services/cart.service";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-book-detail-advertisement',
@@ -15,6 +16,7 @@ export class BookDetailAdvertisementComponent implements OnInit {
   @Input()book:Book;
   responsiveOptions:any;
   constructor(private bookService:BookService,
+              private router:Router,
               private cartService:CartService) {
     this.responsiveOptions = [
       {
@@ -40,6 +42,11 @@ export class BookDetailAdvertisementComponent implements OnInit {
   addToCart(book:Book){
     const cartItem:CartItem = new CartItem(book);
     this.cartService.addToCart(cartItem);
+  }
+  navigateBookDetail(bookId:number){
+    this.router.navigateByUrl("/book-detail/"+bookId);
+    window.scrollTo(0, 0);
+
   }
 
 }

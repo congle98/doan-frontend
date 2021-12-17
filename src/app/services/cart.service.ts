@@ -41,6 +41,7 @@ export class CartService {
     }
     else {
       this.cartItems.push(theCartItem);
+      this.alertService.alertSuccessSwal("Thêm sản phẩm vào giỏ hàng thành công!")
     }
     this.computeCartTotals();
 

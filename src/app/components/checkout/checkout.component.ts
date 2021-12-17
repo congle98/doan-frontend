@@ -116,7 +116,7 @@ export class CheckoutComponent implements OnInit {
     purchase.customer = customer;
     purchase.orderItems = orderItemsShort;
     this.checkoutService.placeOrder(purchase).subscribe(data => {
-        this.alertService.alertSuccess("Bạn đã đặt hàng thành công, quản trị viên sẽ liên lạc với bạn để xác nhận đơn hàng!");
+        this.alertService.alertSuccessSwal("Bạn đã đặt hàng thành công, quản trị viên sẽ liên lạc với bạn để xác nhận đơn hàng!");
         this.resetCart();
       },
       error => alert(error.message));
