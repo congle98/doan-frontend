@@ -47,7 +47,7 @@
     <ng-template pTemplate="content">
       <form [formGroup]="authorForm">
         <div class="p-field mt-3">
-          <label for="name">Tên sách</label>
+          <label for="name">Tên tác giả</label>
           <input id="name"  pInputText  formControlName="name"/>
           <div *ngIf="name">
             <div *ngIf="name.invalid && (name.dirty||name.touched)">

@@ -88,6 +88,7 @@ export class BooksManagerComponent implements OnInit {
     this.bookDialog = false;
     this.imageUrl = "";
     this.imageFile = null;
+    this.bookForm.reset();
   }
   saveBookToBackend(){
     let book:Book = new Book();
@@ -96,6 +97,8 @@ export class BooksManagerComponent implements OnInit {
     book.description = this.bookForm.controls["description"].value;
     book.price = this.bookForm.controls["price"].value;
     book.salePrice = this.bookForm.controls["salePrice"].value;
+    // let author = new Author();
+    // author.id = this.bookForm.controls["author"].value;
     book.author = this.bookForm.controls["author"].value;
     book.bookCategory = this.bookForm.controls["bookCategory"].value;
     book.imageUrl = this.imageUrl;
@@ -122,6 +125,8 @@ export class BooksManagerComponent implements OnInit {
       else {
         this.books.push(data);
       }
+        this.alertService.alertUpdateSuccess();
+        this.hideDialog();
     }, error => {this.alertService.alertFail(error.error.message)}
     )
   }
@@ -214,8 +219,6 @@ export class BooksManagerComponent implements OnInit {
     else {
       this.saveBookToBackend();
     }
-    this.alertService.alertUpdateSuccess();
-    this.hideDialog();
   }
 
 }

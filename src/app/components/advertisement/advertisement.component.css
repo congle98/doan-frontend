@@ -253,3 +253,33 @@
   padding: 5px;
  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
+.progress {
+  border-radius: 20px;
+  margin-bottom: 0px;
+  text-align: center;
+  margin-top: 5px;
+  background-color: rgba(210, 33, 33, 0.4);
+  background-image: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  height: 18px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.progress-value {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 10px;
+  bottom: 0;
+  color: #ffffff;
+  font-size: 1rem;
+}
+.flashsale-item-image{
+  width: 80%;
+}
+.progress-bar {
+  background-image: linear-gradient(to bottom, #D22121 0%, #D22121 100%);
+}

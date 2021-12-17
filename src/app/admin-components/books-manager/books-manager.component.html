@@ -92,7 +92,7 @@
         </div>
         <div class="p-field mt-3">
           <label>Tác giả</label>
-          <p-dropdown formControlName="author" [options]="authors" optionLabel="name" placeholder="Tác giả">
+          <p-dropdown formControlName="author" [filter]="true" filterBy="name" [showClear]="true" [options]="authors" optionLabel="name" placeholder="Tác giả">
             <ng-template let-option pTemplate="item">
               <span [class]="'product-badge'">{{option.name}}</span>
             </ng-template>

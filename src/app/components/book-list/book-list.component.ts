@@ -95,7 +95,6 @@ export class BookListComponent implements OnInit {
   addToCart(book:Book){
     const cartItem:CartItem = new CartItem(book);
     this.cartService.addToCart(cartItem);
-    this.alertService.alertSuccess("Thêm mới thành công")
   }
 
 }

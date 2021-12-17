@@ -44,7 +44,7 @@
         </div>
         <div class="ma-box-content" style="height: 420px">
           <div class="products">
-            <div class="product images-container" title="{{book.name}}">
+            <div class="product images-container" title="{{book.name.length<30?book.name:book.name.slice(0,29)+'..'}}">
               <a href="/book-detail/{{book.id}}">
                 <div class="product-image">
                   <div class="flashsale-image-container">

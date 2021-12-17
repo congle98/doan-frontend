@@ -67,7 +67,7 @@
                 </div>
                 <form  [formGroup]="loginForm">
                   <div class="form-outline mb-4 form-field-height" >
-                    <label class="form-label" for="form2Example11">Tài khoản</label>
+                    <label class="form-label" for="form2Example11">Tài khoản <span class="text-danger">*</span></label>
                     <input type="email" id="form2Example11" class="form-control" formControlName="username"/>
                     <div *ngIf="username">
                       <div *ngIf="username.invalid && (username.dirty||username.touched)">
@@ -77,7 +77,7 @@
                     </div>
                   </div>
                   <div class="form-outline mb-4 form-field-height">
-                    <label class="form-label" for="form2Example22"  >Mật khẩu</label>
+                    <label class="form-label" for="form2Example22"  >Mật khẩu <span class="text-danger">*</span></label>
                     <input type="password" id="form2Example22" formControlName="password" class="form-control" />
                     <div *ngIf="password">
                       <div *ngIf="password.invalid && (password.dirty||password.touched)">

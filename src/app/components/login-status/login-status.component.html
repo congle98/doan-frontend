@@ -1,7 +1,7 @@
 <div class="login-status-header">
     <div class="my-btn-nav">
       <a *ngIf="isAuthenticated && user" class="text-white" (click)="showProfileDialog()">
-        Xin chào: {{ user.fullName }}!<img src="{{user.avatarUrl}}" class="img-radius" style="margin-left: 5px" alt="">
+        Xin chào: {{ user.fullName.length<10?user.fullName:user.fullName.slice(0,9)+'..' }}!<img src="{{user.avatarUrl}}" class="img-radius" style="margin-left: 5px" alt="">
       </a>
       <!--    <a *ngIf="!isAuthenticated" routerLink="/login" class="text-white">Đăng Nhập</a>-->
       <button *ngIf="!isAuthenticated" class="text-white" (click)="showLoginDialog()">Đăng nhập</button>
